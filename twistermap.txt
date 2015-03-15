@@ -1,0 +1,7 @@
+name	mididev	midictl
+time:rate	twister	s13
+time:run	twister	b13
+post:echo_level	twister	s2
+post:echo_length	twister	s1
+post:bloom_amount	twister	s17
+post:bloom_distance	twister	s18

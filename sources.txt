@@ -1,0 +1,4 @@
+name	label	video_path
+src_1	'source 1'	$src_1_video
+src_2	'source 2'	$src_2_video
+src_3	'source 3'	$src_3_video

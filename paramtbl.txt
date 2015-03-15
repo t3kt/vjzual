@@ -1,0 +1,7 @@
+name	default	smooth
+time:rate	.5	0
+time:run	1	0
+post:echo_level	.8	1
+post:echo_length	.2	1
+post:bloom_amount	0	1
+post:bloom_distance	.4	1
