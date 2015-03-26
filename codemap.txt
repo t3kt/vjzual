@@ -1,1 +1,2 @@
 name	mididev	midictl
+time:rate	codev2	s25

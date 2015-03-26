@@ -4,11 +4,14 @@ renderw_high	1920
 renderh_high	1080
 paramtbl	/_/local/paramtbl
 params	/_/params
+inparams	/_/inputparams
 smoothparams	/_/smoothparams
 comps	/_/components
 defaults	/_/local/defaults
 twisterctrlmap	/_/local/twisterctrlmap
 twistertable	/_/local/twistertable
+codectrlmap	/_/local/codectrlmap
+codetable	/_/local/codetable
 inputparams	/_/inputparams
 outwindow	/_/mainoutwindow
 mainout	/_/mainout
