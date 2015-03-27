@@ -6,3 +6,7 @@ src2:rate	.5	0
 src2:reverse	0	0
 src3:rate	.5	0
 src3:reverse	0	0
+feedback1:level	.4	0
+feedback1:warp_amount	.2	0
+feedback1:delay_length	.1	0
+feedback1:delay_mix	.4	0
