@@ -6,3 +6,10 @@ src2:rate	codev2	s27
 src2:reverse	codev2	b27
 src3:rate	codev2	s28
 src3:reverse	codev2	b28
+feedback1:delay_length	codev2	s1
+feedback1:delay_mix	codev2	s2
+feedback1:level	codev2	s3
+feedback1:warp_amount	codev2	s4
+blend1:mix	codev2	s30
+blend2:mix	codev2	s31
+blend3:mix	codev2	s32

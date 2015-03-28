@@ -13,4 +13,7 @@ feedback1:delay_mix	.4	0
 echo1:length	.2	0
 echo1:mix	.4	0
 echo2:length	.3	0
-echo2:mix	.4	
+echo2:mix	.4	0
+blend1:mix	.5	0
+blend2:mix	.5	0
+blend3:mix	.5	0
