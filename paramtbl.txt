@@ -17,3 +17,7 @@ echo2:mix	.4	0
 blend1:mix	.5	0
 blend2:mix	.5	0
 blend3:mix	.5	0
+warpecho1:warp_amount	.4	0
+warpecho1:warp_mix	.4	0
+warpecho1:delay_length	.4	0
+warpecho1:delay_mix	.4	0
