@@ -20,5 +20,7 @@ src_2_video	/_/src_2_video
 src_3_video	/_/src_3_video
 sourcetbl	/_/local/sourcetbl
 blank	/_/blank
-preview	/_/previewwindow/preview
+drypreview	/_/previewwindow/drypreview
+wetpreview	/_/previewwindow/wetpreview
+preview	/_/previewwindow
 previewscript	/_/local/previewscript
