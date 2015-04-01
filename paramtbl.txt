@@ -21,3 +21,5 @@ warpecho1:warp_amount	.4	0
 warpecho1:warp_mix	.4	0
 warpecho1:delay_length	.4	0
 warpecho1:delay_mix	.4	0
+warp1:amount	.2	0
+warp1:level	.5	0
