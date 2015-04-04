@@ -25,3 +25,5 @@ wetpreview	/_/previewwindow/wetpreview
 preview	/_/previewwindow
 previewscript	/_/local/previewscript
 flowpointtbl	/_/local/flowpointtbl
+moviefiletypes	`substitute(execute("filetypes movie"), "movie:  ", "")`
+imagefiletypes	`substitute(execute("filetypes image"), "image:  ", "")`
