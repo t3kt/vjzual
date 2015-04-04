@@ -2,10 +2,13 @@ name	mididev	midictl
 time:rate	codev2	s25
 src1:rate	codev2	s26
 src1:reverse	codev2	b26
+src1:index	codev2	s18
 src2:rate	codev2	s27
 src2:reverse	codev2	b27
+src2:index	codev2	s19
 src3:rate	codev2	s28
 src3:reverse	codev2	b28
+src3:index	codev2	s20
 feedback1:delay_length	codev2	s1
 feedback1:delay_mix	codev2	s2
 feedback1:level	codev2	s3
