@@ -18,6 +18,7 @@ mainout	/_/mainout
 src_1_video	/_/src_1_video
 src_2_video	/_/src_2_video
 src_3_video	/_/src_3_video
+touchin_video	/_/touchin_video
 sourcetbl	/_/local/sourcetbl
 blank	/_/local/blank
 drypreview	/_/previewwindow/drypreview
