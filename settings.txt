@@ -7,6 +7,8 @@ params	/_/params
 inparams	/_/inputparams
 smoothparams	/_/smoothparams
 comps	/_/components
+mlocal	/_/components/module/local
+mheader	/_/components/module/module_header
 defaults	/_/local/defaults
 twisterctrlmap	/_/local/twisterctrlmap
 twistertable	/_/local/twistertable
