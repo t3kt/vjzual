@@ -1,19 +1,19 @@
-name	path	uilabel	paramprefix	collapsible	fullheight
-coloradj1	/_/layer1/color_adjust	color adjust 1		1	110
-coloradj2	/_/layer2/color_adjust	color adjust 2		1	110
-coloradj3	/_/layer3/color_adjust	color adjust 3		1	110
-feedback_1	/_/layer1/feedback_1	feedback 1	feedback1:	1	120
-echo_1	/_/layer1/echo_1	echo 1	echo1:	1	70
-line_displacement	/_/layer1/line_displacement	line displacement		1	110
-time_distortion	/_/layer1/time_distortion	time distortion		1	230
-warp1	/_/layer1/warp1	warp 1		1	80
-warp_and_echo1	/_/layer2/warp_and_echo1	warp+echo 1	warpecho1:	1	230
-feedback_2	/_/layer2/feedback_2	feedback 2	feedback2:	1	110
-edge1	/_/layer2/edge1	edge 1		1	70
-warp2	/_/layer2/warp2	warp 2		1	70
-echo_2	/_/layer3/echo_2	echo 2	echo2:	1	70
-feedback_4	/_/layer3/feedback_4	feedback 4	feedback4:	1	70
-edge	/_/master/edge	edge			70
-feedback_5	/_/master/feedback_5	feedback 5	feedback5:	1	110
-color_adjustment	/_/master/color_adjustment	color adjustment		1	290
-template	/_/components/module	template module		1	70
+name	path	uilabel	paramprefix	fullheight
+coloradj1	/_/layer1/color_adjust	color adjust 1		110
+coloradj2	/_/layer2/color_adjust	color adjust 2		110
+coloradj3	/_/layer3/color_adjust	color adjust 3		110
+feedback_1	/_/layer1/feedback_1	feedback 1	feedback1:	120
+echo_1	/_/layer1/echo_1	echo 1	echo1:	70
+line_displacement	/_/layer1/line_displacement	line displacement		110
+time_distortion	/_/layer1/time_distortion	time distortion		230
+warp1	/_/layer1/warp1	warp 1		80
+warp_and_echo1	/_/layer2/warp_and_echo1	warp+echo 1	warpecho1:	230
+feedback_2	/_/layer2/feedback_2	feedback 2	feedback2:	110
+edge1	/_/layer2/edge1	edge 1		70
+warp2	/_/layer2/warp2	warp 2		70
+echo_2	/_/layer3/echo_2	echo 2	echo2:	70
+feedback_4	/_/layer3/feedback_4	feedback 4	feedback4:	70
+edge	/_/master/edge	edge		70
+feedback_5	/_/master/feedback_5	feedback 5	feedback5:	110
+color_adjustment	/_/master/color_adjustment	color adjustment		290
+template	/_/components/module	template module		70
