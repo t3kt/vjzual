@@ -31,3 +31,5 @@ flowpointtbl	/_/local/flowpointtbl
 moviefiletypes	`substitute(execute("filetypes movie"), "movie:  ", "")`
 imagefiletypes	`substitute(execute("filetypes image"), "image:  ", "")`
 moduletbl	/_/local/moduletbl
+uirootw	1000
+uirooth	750
