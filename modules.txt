@@ -15,5 +15,5 @@ echo_2	/_/layer3/echo_2	echo 2	echo2:	70
 feedback_4	/_/layer3/feedback_4	feedback 4	feedback4:	70
 edge	/_/master/edge	edge		70
 feedback_5	/_/master/feedback_5	feedback 5	feedback5:	110
-color_adjustment	/_/master/color_adjustment	color adjustment		290
+color_adjustment	/_/master/color_adjustment	color adjustment		320
 template	/_/components/module	template module		70
