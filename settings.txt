@@ -34,3 +34,6 @@ imagefiletypes	`substitute(execute("filetypes image"), "image:  ", "")`
 moduletbl	/_/local/moduletbl
 uirootw	1000
 uirooth	750
+audioin	/_/audio/audioin
+audioinraw	/_/audio/audioinraw
+audioout	/_/audio/audioout
