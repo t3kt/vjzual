@@ -37,3 +37,5 @@ uirooth	750
 audioin	/_/audio/audioin
 audioinraw	/_/audio/audioinraw
 audioout	/_/audio/audioout
+audiodata	/_/audio/data
+audiospectrums	/_/audio/spectrums
