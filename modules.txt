@@ -5,7 +5,7 @@ coloradj3	/_/layer3/color_adjust	color adjust 3		110
 feedback_1	/_/layer1/feedback_1	feedback 1	feedback1:	120
 echo_1	/_/layer1/echo_1	echo 1	echo1:	70
 line_displacement	/_/layer1/line_displacement	line displacement		110
-time_distortion	/_/layer1/time_distortion	time distortion		230
+time_distortion	/_/layer1/time_distortion	time distortion		200
 warp1	/_/layer1/warp1	warp 1		80
 warp_and_echo1	/_/layer2/warp_and_echo1	warp+echo 1	warpecho1:	230
 feedback_2	/_/layer2/feedback_2	feedback 2	feedback2:	110
