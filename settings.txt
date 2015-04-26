@@ -39,3 +39,4 @@ audioinraw	/_/audio/audioinraw
 audioout	/_/audio/audioout
 audiodata	/_/audio/data
 audiospectrums	/_/audio/spectrums
+viewerstate	/_/viewerstate
