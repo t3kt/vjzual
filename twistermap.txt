@@ -1,2 +1,0 @@
-name	mididev	midictl
-edge:amount	twister	s4

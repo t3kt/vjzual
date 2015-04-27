@@ -1,55 +1,55 @@
-name	default	smooth
-time:rate	.5	0
-src1:rate	.5	0
-src1:reverse	0	0
-src1:index	0	0
-src2:rate	.5	0
-src2:reverse	0	0
-src2:index	0	0
-src3:rate	.5	0
-src3:reverse	0	0
-src3:index	0	0
-feedback1:level	.4	0
-feedback1:warp_amount	.2	0
-feedback1:delay_length	.1	0
-feedback1:delay_mix	.4	0
-echo1:length	.2	0
-echo1:mix	.4	0
-echo2:length	.3	0
-echo2:mix	.4	0
-blend1:mix	.5	0
-blend2:mix	.5	0
-blend3:mix	.5	0
-warpecho1:warp_amount	.4	0
-warpecho1:warp_mix	.4	0
-warpecho1:delay_length	.4	0
-warpecho1:delay_mix	.4	0
-warp1:amount	.2	0
-warp1:level	.5	0
-blend3:mix1	0	0
-color_adjustment:level	0	0
-color_adjustment:mode	0	0
-echo_2:length	0	0
-echo_2:mix	0	0
-edge:level	0	0
-edge:amount	0	0
-edge1:level	0	0
-edge1:amount	0	0
-feedback_2:level	0	0
-feedback_2:warp_amount	0	0
-feedback_2:edge_amount	0	0
-feedback_2:scale_variation	0	0
-feedback_4:level	0	0
-feedback_4:warp_amount	0	0
-feedback_5:level	0	0
-feedback_5:delay_length	0	0
-feedback_5:delay_mix	0	0
-line_displacement:rate	0	0
-line_displacement:warp_amount	0	0
-line_displacement:period	0	0
-line_displacement:level	0	0
-time_distortion:level	0	0
-time_distortion:amount	0	0
-time_distortion:edge_amount	0	0
-warp2:level	0	0
-warp2:amount	0	0
+name	default	smooth	mididev	midictl
+time:rate	.5	0	codev2	s25
+src1:rate	.5	0	codev2	s26
+src1:reverse	0	0	codev2	b26
+src1:index	0	0	codev2	s18
+src2:rate	.5	0	codev2	s27
+src2:reverse	0	0	codev2	b27
+src2:index	0	0	codev2	s19
+src3:rate	.5	0	codev2	s28
+src3:reverse	0	0	codev2	b28
+src3:index	0	0	codev2	s20
+feedback1:level	.4	0	codev2	s3
+feedback1:warp_amount	.2	0	codev2	s4
+feedback1:delay_length	.1	0	codev2	s1
+feedback1:delay_mix	.4	0	codev2	s2
+echo1:length	.2	0		
+echo1:mix	.4	0		
+echo2:length	.3	0		
+echo2:mix	.4	0		
+blend1:mix	.5	0	codev2	s30
+blend2:mix	.5	0	codev2	s31
+blend3:mix	.5	0	codev2	s32
+warpecho1:warp_amount	.4	0		
+warpecho1:warp_mix	.4	0		
+warpecho1:delay_length	.4	0		
+warpecho1:delay_mix	.4	0		
+warp1:amount	.2	0		
+warp1:level	.5	0		
+blend3:mix1	0	0		
+color_adjustment:level	0	0		
+color_adjustment:mode	0	0		
+echo_2:length	0	0		
+echo_2:mix	0	0		
+edge:level	0	0		
+edge:amount	0	0	twister	s4
+edge1:level	0	0		
+edge1:amount	0	0		
+feedback_2:level	0	0		
+feedback_2:warp_amount	0	0		
+feedback_2:edge_amount	0	0		
+feedback_2:scale_variation	0	0		
+feedback_4:level	0	0		
+feedback_4:warp_amount	0	0		
+feedback_5:level	0	0		
+feedback_5:delay_length	0	0		
+feedback_5:delay_mix	0	0		
+line_displacement:rate	0	0		
+line_displacement:warp_amount	0	0		
+line_displacement:period	0	0		
+line_displacement:level	0	0		
+time_distortion:level	0	0		
+time_distortion:amount	0	0		
+time_distortion:edge_amount	0	0		
+warp2:level	0	0		
+warp2:amount	0	0		
