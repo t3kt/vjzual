@@ -14,6 +14,7 @@ twisterctrlmap	/_/local/twisterctrlmap
 twistertable	/_/local/twistertable
 codectrlmap	/_/local/codectrlmap
 codetable	/_/local/codetable
+midictrlmap	/_/local/ctrlmap
 inputparams	/_/inputparams
 outwindow	/_/mainoutwindow
 mainout	/_/mainout
@@ -39,4 +40,4 @@ audioinraw	/_/audio/audioinraw
 audioout	/_/audio/audioout
 audiodata	/_/audio/data
 audiospectrums	/_/audio/spectrums
-viewerstate	/_/viewerstate
+midiinvals	/_/inputs/midiinvals
