@@ -51,3 +51,15 @@ timedist:amount	0	0
 timedist:edge_amount	0	0		
 warp2:level	0	0		
 warp2:amount	0	0		
+coloradj1:saturation	.5	0		
+coloradj1:gamma	.5	0		
+coloradj1:contrast	.5	0		
+coloradj2:saturation	.5	0		
+coloradj2:gamma	.5	0		
+coloradj2:contrast	.5	0		
+coloradj3:saturation	.5	0		
+coloradj3:gamma	.5	0		
+coloradj3:contrast	.5	0		
+mastercoloradj:saturation	.5	0		
+mastercoloradj:gamma	.5	0		
+mastercoloradj:contrast	.5	0		
