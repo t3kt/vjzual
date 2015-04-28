@@ -42,3 +42,6 @@ audioout	/_/audio/audioout
 audiodata	/_/audio/data
 audiospectrums	/_/audio/spectrums
 midiinvals	/_/inputs/midiinvals
+modvals	/_/modulation/modvals
+signaltbl	/_/local/signaltbl
+signalabbrtbl	/_/local/signalabbrtbl

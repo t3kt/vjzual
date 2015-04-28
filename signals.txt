@@ -1,0 +1,7 @@
+name	path	uilabel
+mod:lfo1	$modvals	mod:lfo1
+mod:lfo2	$modvals	mod:lfo2
+mod:lfo3	$modvals	mod:lfo3
+mod:lfo4	$modvals	mod:lfo4
+mod:lfo5	$modvals	mod:lfo5
+mod:lfo6	$modvals	mod:lfo6
