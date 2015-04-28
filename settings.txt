@@ -15,6 +15,7 @@ twistertable	/_/local/twistertable
 codectrlmap	/_/local/codectrlmap
 codetable	/_/local/codetable
 midictrlmap	/_/local/ctrlmap
+midictrlabbrmap	/_/local/ctrlabbrmap
 inputparams	/_/inputparams
 outwindow	/_/mainoutwindow
 mainout	/_/mainout
