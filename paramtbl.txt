@@ -29,8 +29,6 @@ warp1:level	.5	0
 blend3:mix1	0	0		
 mastercoloradj:level	0	0		
 mastercoloradj:mode	0	0		
-echo2:length	0	0		
-echo2:mix	0	0		
 edge:level	0	0		
 edge:amount	0	0	twister	s4
 edge1:level	0	0		
