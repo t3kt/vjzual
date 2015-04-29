@@ -63,3 +63,6 @@ coloradj3:contrast	.5	0
 mastercoloradj:saturation	.5	0		
 mastercoloradj:gamma	.5	0		
 mastercoloradj:contrast	.5	0		
+mastercoloradj:hueoffset	.5	0		
+mastercoloradj:postgamma	.5	0		
+mastercoloradj:postcontrast	.5	0		
