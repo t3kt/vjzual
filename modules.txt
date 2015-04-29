@@ -1,7 +1,7 @@
 name	path	uilabel	paramprefix	fullheight
 coloradj1	/_/layer1/color_adjust	color adjust 1		125
-coloradj2	/_/layer2/color_adjust	color adjust 2		110
-coloradj3	/_/layer3/color_adjust	color adjust 3		110
+coloradj2	/_/layer2/color_adjust	color adjust 2		125
+coloradj3	/_/layer3/color_adjust	color adjust 3		125
 feedback1	/_/layer1/feedback_1	feedback 1		120
 echo1	/_/layer1/echo_1	echo 1		70
 linedisp	/_/layer1/line_displacement	line displacement		110
