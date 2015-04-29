@@ -6,14 +6,14 @@ feedback1	/_/layer1/feedback_1	feedback 1		130
 echo1	/_/layer1/echo_1	echo 1		75
 linedisp	/_/layer1/line_displacement	line displacement		110
 timedist	/_/layer1/time_distortion	time distortion		200
-warp1	/_/layer1/warp1	warp 1		80
+warp1	/_/layer1/warp1	warp 1		75
 warpecho1	/_/layer2/warp_and_echo1	warp+echo 1		230
-feedback2	/_/layer2/feedback_2	feedback 2		110
-edge1	/_/layer2/edge1	edge 1		70
-warp2	/_/layer2/warp2	warp 2		70
-echo2	/_/layer3/echo_2	echo 2		70
-feedback4	/_/layer3/feedback_4	feedback 4		70
-edge	/_/master/edge	edge		70
+feedback2	/_/layer2/feedback_2	feedback 2		125
+edge1	/_/layer2/edge1	edge 1		75
+warp2	/_/layer2/warp2	warp 2		75
+echo2	/_/layer3/echo_2	echo 2		75
+feedback4	/_/layer3/feedback_4	feedback 4		75
+edge	/_/master/edge	edge		75
 feedback5	/_/master/feedback_5	feedback 5		110
 mastercoloradj	/_/master/color_adjustment	color adjustment		320
 template	/_/components/module	template module		70
