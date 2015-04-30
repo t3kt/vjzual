@@ -3,6 +3,7 @@ renderh_low	720
 renderw_high	1920
 renderh_high	1080
 paramtbl	/_/local/paramtbl
+editableparamtbl	/_/local/paramtbl_in
 params	/_/params
 inparams	/_/inputparams
 smoothparams	/_/smoothparams
