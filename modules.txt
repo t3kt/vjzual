@@ -17,6 +17,7 @@ edge	/_/master/edge	filter	edge	75	1
 feedback5	/_/master/feedback_5	filter	feedback 5	110	1
 mastercoloradj	/_/master/color_adjustment	filter	color adjustment	340	1
 template	/_/components/module	filter	template module	70	1
+flowpointseltemplate	/_/components/flowpt_selector	filter	template module	150	1
 layer1	/_/layer1	chain	layer 1	1000	0
 layer2	/_/layer2	chain	layer 2	1000	0
 layer3	/_/layer3	chain	layer 3	1000	0

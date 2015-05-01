@@ -1,5 +1,34 @@
 __author__ = 'tekt'
 
+def argToOp(arg):
+	if not arg:
+		return None
+	if isinstance(arg, str):
+		o = op(arg)
+		if not o:
+			raise Exception('operator not found: ' + arg)
+		return o
+	return arg
+
+def argToPath(arg):
+	if not arg:
+		return ''
+	if isinstance(arg, str):
+		return arg
+	if hasattr(arg, 'path'):
+		return arg.path
+	return arg
+
+def toggleCooking(path, delayFrames=1):
+	path = argToPath(path)
+	op(path).allowCooking = False
+	run('op("' + path + '").allowCooking = True', delayFrames=delayFrames)
+
+def toggleExport(path, delayFrames=1):
+	path = argToPath(path)
+	op(path).export = False
+	run('op("' + path + '").export = True', delayFrames=delayFrames)
+
 def nameToAbbr(name):
 	if ':' in name:
 		dev, ctl = name.split(':')
@@ -12,11 +41,7 @@ def _midiAbbrToName(comp, abbr):
 	return n.val if n else None
 
 def updateTableRow(tbl, rowKey, vals, addMissing=False):
-	if isinstance(tbl, str):
-		t = op(tbl)
-		if not t:
-			raise Exception('table not found: ' + tbl)
-		tbl = t
+	tbl = argToOp(tbl)
 	if not tbl:
 		return
 	if not tbl[rowKey, 0]:
@@ -27,6 +52,13 @@ def updateTableRow(tbl, rowKey, vals, addMissing=False):
 	for colKey in vals:
 		v = vals[colKey]
 		tbl[rowKey, colKey] = v if v is not None else ''
+
+def overrideRows(tbl, overrides):
+	tbl = argToOp(tbl)
+	if not tbl:
+		return
+	for key in overrides:
+		tbl[key, 1] = overrides[key]
 
 class VjzParam:
 	def __init__(self, comp):
