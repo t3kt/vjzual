@@ -5,3 +5,7 @@ mod:lfo3	$modvals	mod:lfo3
 mod:lfo4	$modvals	mod:lfo4
 mod:lfo5	$modvals	mod:lfo5
 mod:lfo6	$modvals	mod:lfo6
+aud:mlevel	$audiodata	aud:mlevel
+aud:mpeak	$audiodata	aud:mpeak
+aud:mpulse	$audiodata	aud:mpulse
+aud:menv	$audiodata	aud:menv
