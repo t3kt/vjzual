@@ -199,4 +199,11 @@ class VjzSystem:
 			if mop:
 				yield mop
 
+	def getModule(self, name):
+		m = self.moduleTable[name, 'path']
+		m = op(m) if m else None
+		if m is None:
+			raise Exception('module not found: "' + name + '"')
+		return m
+
 VJZ = VjzSystem(op('/_'))
