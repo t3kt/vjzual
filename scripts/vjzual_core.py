@@ -64,10 +64,6 @@ class VjzParam:
 	def __init__(self, comp):
 		self._comp = comp
 
-	def sayHi(self):
-		print('hi! self: ', self)
-		print('hi! self.comp: ', self._comp)
-
 	def initParam(self):
 		print('initializing parameter ', self._comp.path)
 		self._comp.op('init').module.init()
@@ -139,5 +135,68 @@ class VjzParam:
 		else:
 			self.paramMidiName = dev[0] + ':' + ctl
 
+	def saveParamValue(self, tbl):
+		val = self.paramValue
+		updateTableRow(tbl, self.paramName, {'value': val}, addMissing=True)
+
 class VjzModule:
-	pass
+	def __init__(self, comp):
+		self._comp = comp
+
+	def mVar(self, name):
+		return self._comp.var(name)
+
+	@property
+	def modName(self):
+		return self.mVar('modname')
+
+	@property
+	def modParamNames(self):
+		ptbl = VJZ.paramTable
+		mname = self.modName
+		pnames = []
+		for p in ptbl.col('name')[1:]:
+			if ptbl[p, 'module'] == mname:
+				print('param "' + p + '" DOES belong to module "' + mname + '"')
+				pnames.append(p.val)
+			else:
+				print('param "' + p + '" does NOT belong to module "' + mname + '"')
+		return pnames
+
+	@property
+	def modParamObjects(self):
+		pnames = self.modParamNames
+		for p in pnames:
+			pop = self._comp.op(p + '_param')
+			if not pop:
+				print('parameter component not found for param "' + p + '" in module "' + self.modName + '"')
+			yield pop
+
+class VjzSystem:
+	def __init__(self, root):
+		self._root = root
+
+	def sVar(self, name):
+		return self._root.var(name)
+
+	def op(self, path):
+		return self._root.op(path)
+
+	@property
+	def moduleTable(self):
+		return self._root.op(self.sVar('moduletbl'))
+
+	@property
+	def paramTable(self):
+		return self._root.op(self.sVar('paramtbl'))
+
+	def getModules(self, fakes=False):
+		modtbl = self.moduleTable
+		for mname in modtbl.col('name')[1:]:
+			if not fakes and modtbl[mname, 'fake'] == '1':
+				continue
+			mop = self._root.op(modtbl[mname, 'path'])
+			if mop:
+				yield mop
+
+VJZ = VjzSystem(op('/_'))
