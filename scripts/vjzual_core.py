@@ -166,26 +166,30 @@ class VjzModule:
 	def modParamObjects(self):
 		pnames = self.modParamLocalNames
 		for p in pnames:
-			pop = self._comp.op(p + '_param')
+			pop = self.modParam(p)
 			if not pop:
 				print('parameter component not found for param "' + p + '" in module "' + self.modName + '"')
 			yield pop
 
-	@property
 	def modParam(self, name):
 		return self._comp.op(name + '_param')
 
 	def saveParamValues(self, tbl):
 		tbl = argToOp(tbl)
+		print('saving module ' + self.modName + ' to ' + tbl.path)
 		pnames = self.modParamLocalNames
+		pvals = self._comp.op(self.mVar('modparamsout'))
 		for p in pnames:
-			pop = self._comp.op(p + '_param')
+			pop = self.modParam(p)
 			if pop:
 				pop.saveParamValue(tbl)
-			else:
-				pass
-			pass
-		pass
+				continue
+			elif pvals:
+				c = pvals.chan(p)
+				if not c:
+					updateTableRow(tbl, p, {'value': c[0]})
+					continue
+			print('cannot save parameter ' + p)
 
 class VjzSystem:
 	def __init__(self, root):
@@ -193,9 +197,6 @@ class VjzSystem:
 
 	def sVar(self, name):
 		return self._root.var(name)
-
-	def op(self, path):
-		return self._root.op(path)
 
 	@property
 	def moduleTable(self):
@@ -220,5 +221,10 @@ class VjzSystem:
 		if m is None:
 			raise Exception('module not found: "' + name + '"')
 		return m
+
+	def saveParamValues(self):
+		tbl = self._root.op(self.sVar('paramstatetbl'))
+		for m in self.getModules():
+			m.saveParamValues(tbl)
 
 VJZ = VjzSystem(op('/_'))
