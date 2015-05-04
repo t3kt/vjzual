@@ -66,3 +66,5 @@ mastercoloradj:contrast	.5	0
 mastercoloradj:hueoffset	.5	0			
 mastercoloradj:postgamma	.5	0			
 mastercoloradj:postcontrast	.5	0			
+gridgen:rate	.5	0			
+gridgen:period	.5	0			
