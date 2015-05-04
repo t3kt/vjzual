@@ -151,26 +151,41 @@ class VjzModule:
 		return self.mVar('modname')
 
 	@property
+	def modParamTable(self):
+		return self._comp.op(self.mVar('modparamtbl'))
+
+	@property
 	def modParamNames(self):
-		ptbl = VJZ.paramTable
-		mname = self.modName
-		pnames = []
-		for p in ptbl.col('name')[1:]:
-			if ptbl[p, 'module'] == mname:
-				print('param "' + p + '" DOES belong to module "' + mname + '"')
-				pnames.append(p.val)
-			else:
-				print('param "' + p + '" does NOT belong to module "' + mname + '"')
-		return pnames
+		return [c.val for c in self.modParamTable.col('name')[1:]]
+
+	@property
+	def modParamLocalNames(self):
+		return [c.val for c in self.modParamTable.col('localname')[1:]]
 
 	@property
 	def modParamObjects(self):
-		pnames = self.modParamNames
+		pnames = self.modParamLocalNames
 		for p in pnames:
 			pop = self._comp.op(p + '_param')
 			if not pop:
 				print('parameter component not found for param "' + p + '" in module "' + self.modName + '"')
 			yield pop
+
+	@property
+	def modParam(self, name):
+		return self._comp.op(name + '_param')
+
+	def saveParamValues(self, tbl):
+		tbl = argToOp(tbl)
+		pnames = self.modParamLocalNames
+		for p in pnames:
+			pop = self._comp.op(p + '_param')
+			if pop:
+				pop.saveParamValue(tbl)
+			else:
+				pass
+			pass
+		pass
 
 class VjzSystem:
 	def __init__(self, root):

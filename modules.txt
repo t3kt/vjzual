@@ -7,7 +7,7 @@ echo1	/_/layer1/echo_1	filter	echo 1	75	1
 linedisp	/_/layer1/line_displacement	filter	line displacement	125	1	
 timedist	/_/layer1/time_distortion	filter	time distortion	240	1	
 warp1	/_/layer1/warp1	filter	warp 1	75	1	
-warpecho1	/_/layer2/warp_and_echo1	filter	warp+echo 1	230	1	
+warpecho1	/_/layer2/warp_and_echo1	filter	warp+echo 1	250	1	
 feedback2	/_/layer2/feedback_2	filter	feedback 2	125	1	
 edge1	/_/layer2/edge1	filter	edge 1	75	1	
 warp2	/_/layer2/warp2	filter	warp 2	75	1	
