@@ -68,3 +68,11 @@ mastercoloradj:postgamma	.5	0
 mastercoloradj:postcontrast	.5	0			
 gridgen:rate	.5	0			
 gridgen:period	.5	0			
+gridgen:saturation1	0	0			
+gridgen:saturation2	0	0			
+gridgen:hue1	0.5	0			
+gridgen:hue2	0.5	0			
+gridgen:value1	0.5	0			
+gridgen:value2	0.5	0			
+gridgen:opacity1	0.5	0			
+gridgen:opacity2	0.5	0			
