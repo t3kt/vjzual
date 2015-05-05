@@ -39,6 +39,7 @@ feedback2:edge_amount	0	0
 feedback2:scale_variation	0	0			
 feedback4:level	0	0			
 feedback4:warp_amount	0	0			
+feedback4:scale	0.5	0			
 feedback5:level	0	0			
 feedback5:delay_length	0	0			
 feedback5:delay_mix	0	0			
