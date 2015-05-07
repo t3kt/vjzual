@@ -1,0 +1,13 @@
+property	type	value
+uilabel		{mname}
+paramprefix		{mname}:
+dry	filter	{m}/dry
+wet		{m}/wet
+drypreview	filter	{m}/dry
+wetpreview		{m}/wet
+paramsout		{m}/params_out
+params		{m}/params
+paramtbl		{m}/local/paramtbl
+collapsible		1
+fullheight		70
+fake		0
