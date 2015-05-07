@@ -77,3 +77,14 @@ gridgen:value1	0.5	0
 gridgen:value2	0.5	0			
 gridgen:opacity1	0.5	0			
 gridgen:opacity2	0.5	0			
+noisegen1:rate	.4	0			
+noisegen1:period1	.5	0			
+noisegen1:period2	.5	0			
+noisegen1:saturation1	1	0			
+noisegen1:saturation2	1	0			
+noisegen1:spread1	1	0			
+noisegen1:spread2	1	0			
+noisegen1:gain1	1	0			
+noisegen1:gain2	1	0			
+noisegen1:opacity1	1	0			
+noisegen1:opacity2	1	0			
