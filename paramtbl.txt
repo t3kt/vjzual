@@ -88,3 +88,5 @@ noisegen1:gain1	1	0
 noisegen1:gain2	1	0			
 noisegen1:opacity1	1	0			
 noisegen1:opacity2	1	0			
+noisegen1:exp1	1	0			
+noisegen1:exp2	1	0			
