@@ -29,6 +29,11 @@ def toggleExport(path, delayFrames=1):
 	op(path).export = False
 	run('op("' + path + '").export = True', delayFrames=delayFrames)
 
+def toggleBypass(path, delayFrames=1):
+	path = argToPath(path)
+	op(path).bypass = False
+	run('op("' + path + '").bypass = True', delayFrames=delayFrames)
+
 def nameToAbbr(name):
 	if ':' in name:
 		dev, ctl = name.split(':')
