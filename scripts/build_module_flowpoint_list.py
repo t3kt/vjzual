@@ -5,12 +5,16 @@ def cook(dat):
 	for mname in mods.col('name')[1:]:
 		if mods[mname, 'fake'] == '1':
 			continue
-		dat.appendRow([mname + ':dry'])
-		dat[mname+':dry', 'label'] = mname + ' in'
-		dat[mname+':dry', 'path'] = mods[mname, 'dry']
-		dat[mname+':dry', 'type'] = 'nodein'
-		dat.appendRow([mname + ':wet'])
-		dat[mname+':wet', 'label'] = mname + ' out'
-		dat[mname+':wet', 'path'] = mods[mname, 'wet']
-		dat[mname+':wet', 'type'] = 'nodeout'
+		modtype = mods[mname, 'type']
+		if modtype == 'filter':
+			mod.vjzual.updateTableRow(dat, mname + ':dry', {
+				'label': mname + ' in',
+				'path': mods[mname, 'dry'],
+				'type': 'nodein'
+			}, addMissing=True)
+		mod.vjzual.updateTableRow(dat, mname + ':wet', {
+			'label': mname + ' out',
+			'path': mods[mname, 'wet'],
+			'type': 'nodeout'
+		}, addMissing=True)
 	return

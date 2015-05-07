@@ -5,12 +5,12 @@ def cook(dat):
 	addctls(dat, 'codev2', '/_/local/codemap_in', op('codectrlmap'))
 	return
 
-def addctls(dat, device, map, tbl):
+def addctls(dat, device, mappath, tbl):
 	for ctl in tbl.col('midictl')[1:]:
 		name = device + ':' + ctl.val
 		dat.appendRow([name])
 		dat[name, 'mididev'] = device
 		dat[name, 'midictl'] = ctl
 		dat[name, 'cc'] = tbl[ctl, 'cc']
-		dat[name, 'map'] = map
+		dat[name, 'map'] = mappath
 	pass
