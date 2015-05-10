@@ -9,3 +9,9 @@ aud:mlevel	$audiodata	aud:mlevel
 aud:mpeak	$audiodata	aud:mpeak
 aud:mpulse	$audiodata	aud:mpulse
 aud:menv	$audiodata	aud:menv
+leap:l_tx	$leapvals	leap:ltx
+leap:l_ty	$leapvals	leap:lty
+leap:l_tz	$leapvals	leap:ltz
+leap:r_tx	$leapvals	leap:rtx
+leap:r_ty	$leapvals	leap:rty
+leap:r_tz	$leapvals	leap:rtz

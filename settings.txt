@@ -49,3 +49,10 @@ signaltbl	/_/local/signaltbl
 signalabbrtbl	/_/local/signalabbrtbl
 modulebuttoncolors	/_/local/modulebuttoncolors
 showviewers	0
+leapvals	/_/inputs/leapinvals
+leapxmin	-0.2
+leapxmax	0.2
+leapymin	0.1
+leapymax	0.4
+leapzmin	0.16
+leapzmax	-0.16
