@@ -65,6 +65,15 @@ def overrideRows(tbl, overrides):
 	for key in overrides:
 		tbl[key, 1] = overrides[key]
 
+def prepFilterList(filterstr):
+	if isinstance(filterstr, Cell):
+		filterstr = filterstr.val
+	if not filterstr:
+		return None
+	if '|' in filterstr:
+		return filterstr.split('|')
+	return [filterstr]
+
 class VjzParam:
 	def __init__(self, comp):
 		self._comp = comp

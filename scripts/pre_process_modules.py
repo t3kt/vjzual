@@ -1,10 +1,8 @@
 def isTypeMatch(defmodtype, modtype):
-	if defmodtype == '':
+	tfilter = mod.vjzual.prepFilterList(defmodtype)
+	if not tfilter:
 		return True
-	if '|' in defmodtype:
-		dtypes = defmodtype.split('|')
-		return modtype in dtypes
-	return defmodtype == modtype
+	return modtype in tfilter
 
 def getDefault(defaults, propname, modtype):
 	for i in range(1, defaults.numRows):
