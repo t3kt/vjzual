@@ -153,6 +153,12 @@ class VjzParam:
 		val = self.paramValue
 		updateTableRow(tbl, self.paramName, {'value': val}, addMissing=True)
 
+	def resetParamToDefault(self):
+		val = self.paramDef[1, 'default']
+		if not val:
+			raise Exception('Parameter {0} does not have a default value and cannot be reset'.format(self.paramName))
+		self.paramValue = val.val
+
 class VjzModule:
 	def __init__(self, comp):
 		self._comp = comp
