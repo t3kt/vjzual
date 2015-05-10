@@ -211,6 +211,10 @@ class VjzModule:
 					continue
 			print('cannot save parameter ' + p)
 
+	def resetParamsToDefaults(self):
+		for p in self.modParamObjects:
+			p.resetParamToDefault()
+
 class VjzSystem:
 	def __init__(self, root):
 		self._root = root
