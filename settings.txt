@@ -48,3 +48,4 @@ modvals	/_/modulation/modvals
 signaltbl	/_/local/signaltbl
 signalabbrtbl	/_/local/signalabbrtbl
 modulebuttoncolors	/_/local/modulebuttoncolors
+showviewers	0
