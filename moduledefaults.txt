@@ -8,6 +8,9 @@ wetpreview		{m}/wet
 paramsout		{m}/params_out
 params		{m}/params
 paramtbl		{m}/local/paramtbl
+collapsible	chain	0
 collapsible		1
 fullheight		70
 fake		0
+hasviewerstoggle	chain	1
+hasviewerstoggle		0
