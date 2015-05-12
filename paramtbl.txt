@@ -15,8 +15,8 @@ feedback1:delay_length	.1	0		codev2	s1
 feedback1:delay_mix	.4	0		codev2	s2	
 echo1:length	.2	0				
 echo1:mix	.4	0				
-echo2:length	.3	0				
-echo2:mix	.4	0				
+echo2:length	.3	0		codev2	s23	
+echo2:mix	.4	0		codev2	s24	
 blend1:mix	.5	0		codev2	s30	
 blend2:mix	.5	0		codev2	s31	
 blend3:mix	.5	0		codev2	s32	
@@ -37,10 +37,10 @@ feedback2:level	0	0
 feedback2:warp_amount	0	0				
 feedback2:edge_amount	0	0				
 feedback2:scale_variation	0	0				
-feedback4:level	0	0				
+feedback4:level	0	0		codev2	s16	
 feedback4:warp_amount	0	0				
 feedback4:scale	0.5	0	1			
-feedback4:time_warping	0	0				
+feedback4:time_warping	0	0		codev2	s15	
 feedback5:level	0	0				
 feedback5:delay_length	0	0				
 feedback5:delay_mix	0	0				
