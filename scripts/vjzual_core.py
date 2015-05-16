@@ -153,6 +153,11 @@ class VjzParam:
 		val = self.paramValue
 		updateTableRow(tbl, self.paramName, {'value': val}, addMissing=True)
 
+	def loadParamValue(self, tbl):
+		val = tbl[self.paramName, 1]
+		if val is not None:
+			self.paramValue = float(val)
+
 	def resetParamToDefault(self):
 		val = self.paramDef[1, 'default']
 		if not val:
@@ -206,10 +211,20 @@ class VjzModule:
 				continue
 			elif pvals:
 				c = pvals.chan(p)
-				if not c:
+				if c is not None:
 					updateTableRow(tbl, p, {'value': c[0]})
 					continue
 			print('cannot save parameter ' + p)
+
+	def loadParamValues(self, tbl):
+		tbl = argToOp(tbl)
+		pnames = self.modParamLocalNames
+		for p in pnames:
+			pop = self.modParam(p)
+			if pop:
+				pop.loadParamValue(tbl)
+			else:
+				print('cannot save parameter ' + p)
 
 	def resetParamsToDefaults(self):
 		for p in self.modParamObjects:
@@ -250,5 +265,11 @@ class VjzSystem:
 		tbl = self._root.op(self.sVar('paramstatetbl'))
 		for m in self.getModules():
 			m.saveParamValues(tbl)
+		tbl.save(tbl.par.file.val)
+
+	def loadParamValues(self):
+		tbl = self._root.op(self.sVar('paramstatetbl'))
+		for m in self.getModules():
+			m.loadParamValues(tbl)
 
 VJZ = VjzSystem(op('/_'))
