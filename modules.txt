@@ -25,6 +25,5 @@ srcsel1	/_/layer1/src_selector	source	source sel 1	150	1
 srcsel2	/_/layer2/src_selector	source	source sel 2	150	1	
 srcsel3	/_/layer3/src_selector	source	source sel 3	150	1	
 mainoutsel	/_/mainout_selector	source	main out sel	150	1	
-timedistsrcsel	/_/layer1/time_distortion/tima_source_selector	source	--	150	1	
 gridgen	/_/generators/gridgen	source	grid gen	270	1	
 noisegen1	/_/generators/noisegen1	source	noise gen 1	360	1	
