@@ -1,5 +1,6 @@
 name	default	smooth	showmidbar	mididev	midictl	path
-time:rate	.5	0		codev2	s25	
+time:rate	.5	0				
+global:rate	.5	0		codev2	s25	
 src1:rate	.5	0		codev2	s26	
 src1:reverse	0	0		codev2	b26	
 src1:index	0	0		codev2	s18	

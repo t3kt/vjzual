@@ -13,10 +13,10 @@ def cook(dat):
 				'type': 'nodein',
 				'modtype': modtype
 			}, addMissing=True)
-		mod.vjzual.updateTableRow(dat, mname + ':wet', {
-			'label': mname + ' out',
-			'path': mods[mname, 'wet'],
-			'type': 'nodeout',
-			'modtype': modtype
-		}, addMissing=True)
-	return
+		if modtype == 'chain' or modtype == 'filter':
+			mod.vjzual.updateTableRow(dat, mname + ':wet', {
+				'label': mname + ' out',
+				'path': mods[mname, 'wet'],
+				'type': 'nodeout',
+				'modtype': modtype
+			}, addMissing=True)
