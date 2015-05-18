@@ -19,4 +19,4 @@ for m in mods.col('name')[1:]:
 		btn.panel.state = 1 if m_on else 0
 
 if not is_on:
-	set_outsel.run('master:out')
+	set_outsel.run('master:wet')

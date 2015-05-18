@@ -1,2 +1,1 @@
 name	label	path	type	modtype
-master:out	master output	/_/masterout	nodeout	
