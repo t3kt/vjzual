@@ -12,5 +12,5 @@ collapsible	chain|special	0
 collapsible		1
 fullheight		70
 fake		0
-hasviewerstoggle	chain	1
+hasviewerstoggle	chain|special	1
 hasviewerstoggle		0
