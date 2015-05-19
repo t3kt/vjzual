@@ -13,7 +13,7 @@ def cook(dat):
 				'type': 'nodein',
 				'modtype': modtype
 			}, addMissing=True)
-		if modtype == 'chain' or modtype == 'filter':
+		if modtype == 'chain' or modtype == 'filter' or modtype == 'source':
 			mod.vjzual.updateTableRow(dat, mname + ':wet', {
 				'label': mname + ' out',
 				'path': mods[mname, 'wet'],
