@@ -74,6 +74,39 @@ def prepFilterList(filterstr):
 		return filterstr.split('|')
 	return [filterstr]
 
+def rowsToDictList(tbl):
+	tbl = argToOp(tbl)
+	if not tbl:
+		return []
+	allObjs = []
+	cols = [c.val for c in tbl.row(0)]
+	for i in range(1, tbl.numRows):
+		obj = {c: tbl[i, c].val for c in cols}
+		allObjs.append(obj)
+	return allObjs
+
+def buildModuleDefDicts(moduletbl, paramtbl):
+	moduletbl, paramtbl = argToOp(moduletbl), argToOp(paramtbl)
+	mDicts = rowsToDictList(moduletbl)
+	if not mDicts:
+		return None
+	mDicts = [withoutDictEmptyStrings(m) for m in mDicts]
+	pDicts = rowsToDictList(paramtbl)
+	pDicts = [withoutDictEmptyStrings(p) for p in pDicts]
+	for p in pDicts:
+		modname = p['module']
+		if modname:
+			for m in mDicts:
+				if m['name'] == modname:
+					if not 'paramdefs' in m:
+						m['paramdefs'] = []
+					m['paramdefs'].append(p)
+					break
+	return mDicts
+
+def withoutDictEmptyStrings(d):
+	return {k: d[k] for k in d if d[k] != ""}
+
 class VjzParam:
 	def __init__(self, comp):
 		self._comp = comp
