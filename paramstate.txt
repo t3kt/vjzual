@@ -75,3 +75,17 @@ noisegen1:opacity2	0.6510069966316223
 noisegen1:exp1	0.5369129776954651
 noisegen1:exp2	0.6241610050201416
 global:rate	0.4093959629535675
+feedback1:bypass	0.0
+echo1:bypass	0.0
+linedisp:bypass	1.0
+timedist:bypass	0.0
+warpecho1:bypass	0.0
+feedback2:bypass	0.0
+edge1:bypass	0.0
+warp2:bypass	0.0
+echo2:bypass	0.0
+feedback4:bypass	0.0
+flip1:bypass	0.0
+edge:bypass	0.0
+feedback5:bypass	0.0
+mastercoloradj:bypass	0.0
