@@ -193,7 +193,7 @@ class VjzParam:
 
 	def resetParamToDefault(self):
 		val = self.paramDef[1, 'default']
-		if not val:
+		if val is None:
 			raise Exception('Parameter {0} does not have a default value and cannot be reset'.format(self.paramName))
 		self.paramValue = val.val
 
