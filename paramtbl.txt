@@ -1,5 +1,4 @@
 name	default	smooth	showmidbar	mididev	midictl	path	hidden	type
-time:rate	.5	0						float
 global:rate	.5	0		codev2	s25			float
 src1:rate	.5	0		codev2	s26			float
 src1:reverse	0	0		codev2	b26			float
