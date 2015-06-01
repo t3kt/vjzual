@@ -26,7 +26,9 @@ mainout	/_/mainout
 audioviz_video	/_/audioviz_video
 touchin_video	/_/touchin_video
 sourcetbl	/_/local/sourcetbl
-blank	/_/local/blank
+blank	/_/components/blank
+white	/_/components/white
+black	/_/components/black
 drypreview	/_/previewwindow/drypreview
 wetpreview	/_/previewwindow/wetpreview
 preview	/_/previewwindow

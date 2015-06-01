@@ -7,3 +7,6 @@ src_5	'source 5'	/_/sources/src_5/video_out
 src_6	'source 6'	/_/sources/src_6/video_out
 touchin	'touch in'	$touchin_video
 audioviz	'audio viz'	$audioviz_video
+blank	blank	$blank
+white	white	$white
+black	black	$black
