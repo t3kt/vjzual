@@ -1,6 +1,9 @@
 name	label	path
-src_1	'source 1'	$src_1_video
-src_2	'source 2'	$src_2_video
-src_3	'source 3'	$src_3_video
+src_1	'source 1'	/_/sources/src_1/video_out
+src_2	'source 2'	/_/sources/src_2/video_out
+src_3	'source 3'	/_/sources/src_3/video_out
+src_4	'source 4'	/_/sources/src_4/video_out
+src_5	'source 5'	/_/sources/src_5/video_out
+src_6	'source 6'	/_/sources/src_6/video_out
 touchin	'touch in'	$touchin_video
 audioviz	'audio viz'	$audioviz_video
