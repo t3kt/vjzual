@@ -113,3 +113,6 @@ edge:bypass	0	0					1	bool
 feedback5:bypass	0	0					1	bool
 mastercoloradj:bypass	0	0					1	bool
 template:bypass	0	0					1	bool
+rampgen1:angle	.5	0	1				0	float
+rampgen1:phase	.5	0	1				0	float
+rampgen1:period	.5	0					0	float
