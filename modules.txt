@@ -30,6 +30,6 @@ srcsel3	/_/layer3/src_selector	source	source sel 3	150	1
 mainoutsel	/_/mainout_selector	source	main out sel	150	1	
 gridgen	/_/generators/gridgen	source	grid gen	270	1	
 noisegen1	/_/generators/noisegen1	source	noise gen 1	360	1	
-rampgen1	/_/generators/rampgen1	source	ramp gen 1	360	1	
+rampgen1	/_/generators/rampgen1	source	ramp gen 1	120	1	
 global	/_/global	special	global	1000	0	
 viewer	/_/components/viewer	filter	viewer	150	1	1
