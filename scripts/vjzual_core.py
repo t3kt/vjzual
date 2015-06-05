@@ -45,7 +45,7 @@ def _midiAbbrToName(comp, abbr):
 	n = ctrlmap[abbr, 'name']
 	return n.val if n else None
 
-def updateTableRow(tbl, rowKey, vals, addMissing=False):
+def updateTableRow(tbl, rowKey, vals, addMissing=False, ignoreMissingCols=False):
 	tbl = argToOp(tbl)
 	if not tbl:
 		return
@@ -56,6 +56,8 @@ def updateTableRow(tbl, rowKey, vals, addMissing=False):
 			tbl.appendRow([rowKey])
 	for colKey in vals:
 		v = vals[colKey]
+		if ignoreMissingCols and tbl[rowKey, colKey] is None:
+			continue
 		tbl[rowKey, colKey] = v if v is not None else ''
 
 def overrideRows(tbl, overrides):
@@ -108,7 +110,7 @@ def extractModuleTblFromDicts(moduleDicts, moduletbl):
 	moduletbl = argToOp(moduletbl)
 	moduletbl.setSize(1, moduletbl.numCols)
 	for mDict in moduleDicts:
-		updateTableRow(moduletbl, mDict['name'], mDict, addMissing=True)
+		updateTableRow(moduletbl, mDict['name'], mDict, addMissing=True, ignoreMissingCols=True)
 
 def extractParamTableFromDicts(moduleDicts, paramtbl):
 	paramtbl = argToOp(paramtbl)
@@ -117,7 +119,7 @@ def extractParamTableFromDicts(moduleDicts, paramtbl):
 		if not 'paramdefs' in mDict:
 			continue
 		for pDict in mDict['paramdefs']:
-			updateTableRow(paramtbl, pDict['name'], pDict, addMissing=True)
+			updateTableRow(paramtbl, pDict['name'], pDict, addMissing=True, ignoreMissingCols=True)
 
 def withoutDictEmptyStrings(d):
 	return {k: d[k] for k in d if d[k] != ""}
