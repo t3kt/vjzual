@@ -104,6 +104,21 @@ def buildModuleDefDicts(moduletbl, paramtbl):
 					break
 	return mDicts
 
+def extractModuleTblFromDicts(moduleDicts, moduletbl):
+	moduletbl = argToOp(moduletbl)
+	moduletbl.setSize(1, moduletbl.numCols)
+	for mDict in moduleDicts:
+		updateTableRow(moduletbl, mDict['name'], mDict, addMissing=True)
+
+def extractParamTableFromDicts(moduleDicts, paramtbl):
+	paramtbl = argToOp(paramtbl)
+	paramtbl.setSize(1, paramtbl.numCols)
+	for mDict in moduleDicts:
+		if not 'paramdefs' in mDict:
+			continue
+		for pDict in mDict['paramdefs']:
+			updateTableRow(paramtbl, pDict['name'], pDict, addMissing=True)
+
 def withoutDictEmptyStrings(d):
 	return {k: d[k] for k in d if d[k] != ""}
 
