@@ -124,6 +124,12 @@ def extractParamTableFromDicts(moduleDicts, paramtbl):
 def withoutDictEmptyStrings(d):
 	return {k: d[k] for k in d if d[k] != ""}
 
+def DEBUGLOG(s):
+	log = op('/_/LOG')
+	log.text += s + '\n'
+	log.save('DEBUGLOG.txt')
+	pass
+
 class VjzParam:
 	def __init__(self, comp):
 		self._comp = comp
@@ -320,6 +326,7 @@ class VjzSystem:
 	def loadParamValues(self):
 		tbl = self._root.op(self.sVar('paramstatetbl'))
 		for m in self.getModules():
+			print('loading param values in: ', m.path)
 			m.loadParamValues(tbl)
 
 VJZ = VjzSystem(op('/_'))
