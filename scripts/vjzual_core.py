@@ -137,14 +137,6 @@ def getOrAddParamPage(comp, name):
 			return page
 	return comp.appendCustomPage(name)
 
-def customizePars(tuplet, *parAttrs):
-	pass
-
-def customizePar(par, **attrs):
-	if not par
-	for key in attrs:
-		setattr(par, key, attrs[key])
-
 class VjzParam:
 	def __init__(self, comp):
 		self._comp = comp
