@@ -130,13 +130,24 @@ def DEBUGLOG(s):
 	log.save('DEBUGLOG.txt')
 	pass
 
+def getOrAddParamPage(comp, name):
+	comp = argToOp(comp)
+	for page in comp.customPages:
+		if page.name == name:
+			return page
+	return comp.appendCustomPage(name)
+
+def customizePars(tuplet, *parAttrs):
+	pass
+
+def customizePar(par, **attrs):
+	if not par
+	for key in attrs:
+		setattr(par, key, attrs[key])
+
 class VjzParam:
 	def __init__(self, comp):
 		self._comp = comp
-
-	def initParam(self):
-		print('initializing parameter ', self._comp.path)
-		self._comp.op('init').module.init()
 
 	def pVar(self, name):
 		return self._comp.var(name)
