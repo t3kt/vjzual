@@ -74,7 +74,7 @@ noisegen1:opacity1	0.9060400128364563
 noisegen1:opacity2	0.6510069966316223
 noisegen1:exp1	0.5369129776954651
 noisegen1:exp2	0.6241610050201416
-global:rate	0.563758373260498
+global:rate	0.449664443731308
 feedback1:bypass	0.0
 echo1:bypass	0.0
 linedisp:bypass	1.0
@@ -93,6 +93,6 @@ coloradj1:bypass	0.0
 coloradj2:bypass	0.0
 coloradj3:bypass	0.0
 rampgen1:angle	0.5
-rampgen1:phase	0.7147533893585205
+rampgen1:phase	0.564738929271698
 rampgen1:period	0.5
 rampgen1:mirror	1.0

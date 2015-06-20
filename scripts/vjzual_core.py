@@ -141,6 +141,19 @@ class VjzParam:
 	def __init__(self, comp):
 		self._comp = comp
 
+	@staticmethod
+	def get(comp):
+		if hasattr(comp, 'paramDef'):
+			return comp
+		if comp.ext and hasattr(comp.ext, 'VjzParam'):
+			return comp.ext.VjzParam
+		if comp.extensions:
+			for e in comp.extensions:
+				if isinstance(e, VjzParam):
+					return e
+		print('unable to find VjzParam extension for comp: ' + comp.path)
+		return None
+
 	def pVar(self, name):
 		return self._comp.var(name)
 
@@ -227,12 +240,29 @@ class VjzModule:
 	def __init__(self, comp):
 		self._comp = comp
 
+	@staticmethod
+	def get(comp):
+		if hasattr(comp, 'modName'):
+			return comp
+		if comp.ext and hasattr(comp.ext, 'VjzModule'):
+			return comp.ext.VjzModule
+		if comp.extensions:
+			for e in comp.extensions:
+				if isinstance(e, VjzModule):
+					return e
+		print('unable to find VjzModule extension for comp: ' + comp.path)
+		return None
+
 	def mVar(self, name):
 		return self._comp.var(name)
 
 	@property
 	def modName(self):
 		return self.mVar('modname')
+
+	@property
+	def modPath(self):
+		return self._comp.path
 
 	@property
 	def modParamTable(self):
@@ -256,7 +286,8 @@ class VjzModule:
 			yield pop
 
 	def modParam(self, name):
-		return self._comp.op(name + '_param')
+		pop = self._comp.op(name + '_param')
+		return VjzParam.get(pop) if pop else None
 
 	def saveParamValues(self, tbl):
 		tbl = argToOp(tbl)
@@ -311,14 +342,14 @@ class VjzSystem:
 				continue
 			mop = self._root.op(modtbl[mname, 'path'])
 			if mop:
-				yield mop
+				yield VjzModule.get(mop)
 
 	def getModule(self, name):
 		m = self.moduleTable[name, 'path']
 		m = op(m) if m else None
 		if m is None:
 			raise Exception('module not found: "' + name + '"')
-		return m
+		return VjzModule.get(m)
 
 	def saveParamValues(self):
 		tbl = self._root.op(self.sVar('paramstatetbl'))
@@ -329,7 +360,7 @@ class VjzSystem:
 	def loadParamValues(self):
 		tbl = self._root.op(self.sVar('paramstatetbl'))
 		for m in self.getModules():
-			print('loading param values in: ', m.path)
+			print('loading param values in: ', m.modPath)
 			m.loadParamValues(tbl)
 
 VJZ = VjzSystem(op('/_'))
