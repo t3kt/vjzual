@@ -12,6 +12,12 @@ src5:rate	.5	0		codev2	s30			float
 src5:index	0	0		codev2	s22			float
 src6:rate	.5	0		codev2	s31			float
 src6:index	0	0		codev2	s23			float
+src7:rate	.5	0						float
+src7:index	0	0						float
+src8:rate	.5	0						float
+src8:index	0	0						float
+src9:rate	.5	0						float
+src9:index	0	0						float
 feedback1:level	.4	0		codev2	s3			float
 feedback1:warp_amount	.2	0		codev2	s4			float
 feedback1:delay_length	.1	0		codev2	s1			float

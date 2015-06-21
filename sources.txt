@@ -5,6 +5,9 @@ src_3	'source 3'	/_/sources/src_3/video_out
 src_4	'source 4'	/_/sources/src_4/video_out
 src_5	'source 5'	/_/sources/src_5/video_out
 src_6	'source 6'	/_/sources/src_6/video_out
+src_7	'source 7'	/_/sources/src_7/video_out
+src_8	'source 8'	/_/sources/src_8/video_out
+src_9	'source 9'	/_/sources/src_9/video_out
 touchin	'touch in'	$touchin_video
 audioviz	'audio viz'	$audioviz_video
 blank	blank	$blank
