@@ -342,7 +342,9 @@ class VjzSystem:
 				continue
 			mop = self._root.op(modtbl[mname, 'path'])
 			if mop:
-				yield VjzModule.get(mop)
+				m = VjzModule.get(mop)
+				if m:
+					yield m
 
 	def getModule(self, name):
 		m = self.moduleTable[name, 'path']
