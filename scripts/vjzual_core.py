@@ -137,6 +137,19 @@ def getOrAddParamPage(comp, name):
 			return page
 	return comp.appendCustomPage(name)
 
+def _logDeprecatedCall(self, methodName):
+	if hasattr(self, '_comp') and self._comp:
+		selfName = self._comp.path
+	else:
+		selfName = str(self)
+	print('deprecated extension method "' + methodName + '" called on [' + type(self).__name__ + '] ' + selfName)
+
+def deprecatedMethod(origFn):
+	def newFn(*args, **kwargs):
+		_logDeprecatedCall(args[0], origFn.__name__)
+		return origFn(*args, **kwargs)
+	return newFn
+
 class VjzParam:
 	def __init__(self, comp):
 		self._comp = comp
@@ -154,43 +167,106 @@ class VjzParam:
 		print('unable to find VjzParam extension for comp: ' + comp.path)
 		return None
 
+	@deprecatedMethod
 	def pVar(self, name):
+		return self.PVar(name)
+
+	@deprecatedMethod
+	@property
+	def paramDef(self):
+		return self.ParamDef
+
+	@property
+	@deprecatedMethod
+	def paramValue(self):
+		return self.ParamValue
+
+	@paramValue.setter
+	@deprecatedMethod
+	def paramValue(self, val):
+		self.ParamValue = val
+
+	@property
+	@deprecatedMethod
+	def paramName(self):
+		return self.ParamName
+
+	@property
+	@deprecatedMethod
+	def paramMidiMapping(self):
+		return self.ParamMidiMapping
+
+	@property
+	@deprecatedMethod
+	def paramMidiName(self):
+		return self.ParamMidiName
+
+	@paramMidiName.setter
+	@deprecatedMethod
+	def paramMidiName(self, name):
+		self.ParamMidiName = name
+
+	@deprecatedMethod
+	def updateParamTableEntry(self, vals):
+		self.UpdateParamTableEntry(vals)
+
+	@deprecatedMethod
+	def saveParamMidiMapping(self):
+		return self.SaveParamMidiMapping()
+
+	@deprecatedMethod
+	def loadParamMidiMapping(self):
+		return self.LoadParamMidiMapping()
+
+	@deprecatedMethod
+	def saveParamValue(self, tbl):
+		self.SaveParamValue(tbl)
+
+	@deprecatedMethod
+	def loadParamValue(self, tbl):
+		self.LoadParamValue(tbl)
+
+	@deprecatedMethod
+	def resetParamToDefault(self):
+		return self.ResetParamToDefault()
+
+	def PVar(self, name):
 		return self._comp.var(name)
 
 	@property
-	def paramDef(self):
-		d = self._comp.op(self.pVar('pdef'))
+	def ParamDef(self):
+		d = self._comp.op(self.PVar('pdef'))
 		return d if d.numRows == 2 else None
 
 	@property
-	def paramValue(self):
+	def ParamValue(self):
 		return self._comp.op('value')[0][0]
 
-	@paramValue.setter
-	def paramValue(self, val):
+	@ParamValue.setter
+	def ParamValue(self, val):
 		self._comp.op('slider').panel.u = val
 
 	@property
-	def paramName(self):
-		return self.pVar('pname')
+	def ParamName(self):
+		return self.PVar('pname')
 
 	@property
-	def paramMidiMapping(self):
+	def ParamMidiMapping(self):
 		mapping = self._comp.op('mapping')
 		return mapping if mapping.numRows == 2 else None
 
 	@property
-	def paramMidiName(self):
+	def ParamMidiName(self):
 		m = self.paramMidiMapping
 		return m[1, 'name'].val if m else None
 
-	@paramMidiName.setter
-	def paramMidiName(self, name):
+	@ParamMidiName.setter
+	def ParamMidiName(self, name):
 		if not name or name == '-':
 			abbr = '-'
 			i = 0
 		else:
-			ctrlmap = self._comp.op(self.pVar('midictrlabbrmap'))
+			ctrlmap = self._comp.op(self.PVar('midictrlabbrmap'))
 			abbr = nameToAbbr(name)
 			n = ctrlmap[abbr, 'abbr']
 			if n:
@@ -200,10 +276,10 @@ class VjzParam:
 				i = 0
 		self._comp.op('midictllist/set').run(i, abbr)
 
-	def updateParamTableEntry(self, vals):
-		updateTableRow(self.pVar('editableparamtbl'), self.paramName, vals)
+	def UpdateParamTableEntry(self, vals):
+		updateTableRow(self.PVar('editableparamtbl'), self.paramName, vals)
 
-	def saveParamMidiMapping(self):
+	def SaveParamMidiMapping(self):
 		mapping = self.paramMidiMapping
 		if not mapping:
 			dev, ctl = '', ''
@@ -211,7 +287,7 @@ class VjzParam:
 			dev, ctl = mapping[1, 'mididev'].val, mapping[1, 'midictl'].val
 		self.updateParamTableEntry({'mididev': dev, 'midictl': ctl})
 
-	def loadParamMidiMapping(self):
+	def LoadParamMidiMapping(self):
 		pdef = self.paramDef
 		if not pdef:
 			return
@@ -221,16 +297,16 @@ class VjzParam:
 		else:
 			self.paramMidiName = dev[0] + ':' + ctl
 
-	def saveParamValue(self, tbl):
+	def SaveParamValue(self, tbl):
 		val = self.paramValue
 		updateTableRow(tbl, self.paramName, {'value': val}, addMissing=True)
 
-	def loadParamValue(self, tbl):
+	def LoadParamValue(self, tbl):
 		val = tbl[self.paramName, 1]
 		if val is not None:
 			self.paramValue = float(val)
 
-	def resetParamToDefault(self):
+	def ResetParamToDefault(self):
 		val = self.paramDef[1, 'default']
 		if val is None:
 			raise Exception('Parameter {0} does not have a default value and cannot be reset'.format(self.paramName))
@@ -253,31 +329,81 @@ class VjzModule:
 		print('unable to find VjzModule extension for comp: ' + comp.path)
 		return None
 
+	@deprecatedMethod
 	def mVar(self, name):
+		return self.MVar(name)
+
+	@property
+	@deprecatedMethod
+	def modName(self):
+		return self.ModName
+
+	@property
+	@deprecatedMethod
+	def modPath(self):
+		return self.ModPath
+
+	@property
+	@deprecatedMethod
+	def modParamTable(self):
+		return self.ModParamTable
+
+	@property
+	@deprecatedMethod
+	def modParamNames(self):
+		return self.ModParamNames
+
+	@property
+	@deprecatedMethod
+	def modParamLocalNames(self):
+		return self.ModParamLocalNames
+
+	@property
+	@deprecatedMethod
+	def modParamObjects(self):
+		return self.ModParamObjects
+
+	@deprecatedMethod
+	def modParam(self, name):
+		return self.ModParam(name)
+
+	@deprecatedMethod
+	def saveParamValues(self, tbl):
+		return self.SaveParamValues(tbl)
+
+	@deprecatedMethod
+	def loadParamValues(self, tbl):
+		return self.LoadParamValues(tbl)
+
+	@deprecatedMethod
+	def resetParamsToDefaults(self):
+		return self.ResetParamsToDefaults()
+
+	def MVar(self, name):
 		return self._comp.var(name)
 
 	@property
-	def modName(self):
+	def ModName(self):
 		return self.mVar('modname')
 
 	@property
-	def modPath(self):
+	def ModPath(self):
 		return self._comp.path
 
 	@property
-	def modParamTable(self):
+	def ModParamTable(self):
 		return self._comp.op(self.mVar('modparamtbl'))
 
 	@property
-	def modParamNames(self):
+	def ModParamNames(self):
 		return [c.val for c in self.modParamTable.col('name')[1:]]
 
 	@property
-	def modParamLocalNames(self):
+	def ModParamLocalNames(self):
 		return [c.val for c in self.modParamTable.col('localname')[1:]]
 
 	@property
-	def modParamObjects(self):
+	def ModParamObjects(self):
 		pnames = self.modParamLocalNames
 		for p in pnames:
 			pop = self.modParam(p)
@@ -285,11 +411,11 @@ class VjzModule:
 				print('parameter component not found for param "' + p + '" in module "' + self.modName + '"')
 			yield pop
 
-	def modParam(self, name):
+	def ModParam(self, name):
 		pop = self._comp.op(name + '_param')
 		return VjzParam.get(pop) if pop else None
 
-	def saveParamValues(self, tbl):
+	def SaveParamValues(self, tbl):
 		tbl = argToOp(tbl)
 		print('saving module ' + self.modName + ' to ' + tbl.path)
 		pnames = self.modParamLocalNames
@@ -306,7 +432,7 @@ class VjzModule:
 					continue
 			print('cannot save parameter ' + p)
 
-	def loadParamValues(self, tbl):
+	def LoadParamValues(self, tbl):
 		tbl = argToOp(tbl)
 		pnames = self.modParamLocalNames
 		for p in pnames:
@@ -316,7 +442,7 @@ class VjzModule:
 			else:
 				print('cannot load parameter ' + self.modPath + ' : ' + p)
 
-	def resetParamsToDefaults(self):
+	def ResetParamsToDefaults(self):
 		for p in self.modParamObjects:
 			p.resetParamToDefault()
 
@@ -324,18 +450,48 @@ class VjzSystem:
 	def __init__(self, root):
 		self._root = root
 
+	@deprecatedMethod
 	def sVar(self, name):
+		return self.SVar(name)
+
+	@property
+	@deprecatedMethod
+	def moduleTable(self):
+		return self.ModuleTable
+
+	@property
+	@deprecatedMethod
+	def paramTable(self):
+		return self.ParamTable
+
+	@deprecatedMethod
+	def getModules(self, fakes=False):
+		return self.GetModules(fakes=fakes)
+
+	@deprecatedMethod
+	def getModule(self, name):
+		return self.GetModule(name)
+
+	@deprecatedMethod
+	def saveParamValues(self):
+		return self.SaveParamValues()
+
+	@deprecatedMethod
+	def loadParamValues(self):
+		return self.LoadParamValues()
+
+	def SVar(self, name):
 		return self._root.var(name)
 
 	@property
-	def moduleTable(self):
+	def ModuleTable(self):
 		return self._root.op(self.sVar('moduletbl'))
 
 	@property
-	def paramTable(self):
+	def ParamTable(self):
 		return self._root.op(self.sVar('paramtbl'))
 
-	def getModules(self, fakes=False):
+	def GetModules(self, fakes=False):
 		modtbl = self.moduleTable
 		for mname in modtbl.col('name')[1:]:
 			if not fakes and modtbl[mname, 'fake'] == '1':
@@ -346,20 +502,20 @@ class VjzSystem:
 				if m:
 					yield m
 
-	def getModule(self, name):
+	def GetModule(self, name):
 		m = self.moduleTable[name, 'path']
 		m = op(m) if m else None
 		if m is None:
 			raise Exception('module not found: "' + name + '"')
 		return VjzModule.get(m)
 
-	def saveParamValues(self):
+	def SaveParamValues(self):
 		tbl = self._root.op(self.sVar('paramstatetbl'))
 		for m in self.getModules():
 			m.saveParamValues(tbl)
 		tbl.save(tbl.par.file.val)
 
-	def loadParamValues(self):
+	def LoadParamValues(self):
 		tbl = self._root.op(self.sVar('paramstatetbl'))
 		for m in self.getModules():
 			print('loading param values in: ', m.modPath)
