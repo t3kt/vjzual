@@ -314,7 +314,7 @@ class VjzModule:
 			if pop:
 				pop.loadParamValue(tbl)
 			else:
-				print('cannot save parameter ' + p)
+				print('cannot load parameter ' + self.modPath + ' : ' + p)
 
 	def resetParamsToDefaults(self):
 		for p in self.modParamObjects:
