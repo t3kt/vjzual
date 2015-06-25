@@ -164,13 +164,18 @@ class VjzParam:
 
 	@staticmethod
 	def get(comp):
-		if _safeTestForAttr(comp, 'paramDef') or _safeTestForAttr(comp, 'ParamDef'):
+		if _safeTestForAttr(comp, 'ParamDef'):
+			return comp
+		if _safeTestForAttr(comp, 'paramDef'):
+			print('could only find VjzParam extension for comp ' + comp.path + ' using old attribute name')
 			return comp
 		if comp.ext and hasattr(comp.ext, 'VjzParam'):
+			print('could only find VjzParam extension for comp ' + comp.path + ' using ext.VjzParam')
 			return comp.ext.VjzParam
 		if comp.extensions:
 			for e in comp.extensions:
 				if isinstance(e, VjzParam):
+					print('could only find VjzParam extension for comp ' + comp.path + ' by looping through extension list')
 					return e
 		print('unable to find VjzParam extension for comp: ' + comp.path)
 		return None
@@ -327,13 +332,18 @@ class VjzModule:
 
 	@staticmethod
 	def get(comp):
-		if _safeTestForAttr(comp, 'modName') or _safeTestForAttr(comp, 'ModName'):
+		if _safeTestForAttr(comp, 'ModName'):
+			return comp
+		if _safeTestForAttr(comp, 'modName'):
+			print('could only find VjzModule extension for comp ' + comp.path + ' using old attribute name')
 			return comp
 		if comp.ext and hasattr(comp.ext, 'VjzModule'):
+			print('could only find VjzModule extension for comp ' + comp.path + ' using ext.VjzModule')
 			return comp.ext.VjzModule
 		if comp.extensions:
 			for e in comp.extensions:
 				if isinstance(e, VjzModule):
+					print('could only find VjzModule extension for comp ' + comp.path + ' by looping through extension list')
 					return e
 		print('unable to find VjzModule extension for comp: ' + comp.path)
 		return None
