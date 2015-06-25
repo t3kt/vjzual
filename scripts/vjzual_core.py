@@ -504,14 +504,14 @@ class VjzSystem:
 
 	@property
 	def ModuleTable(self):
-		return self._root.op(self.sVar('moduletbl'))
+		return self._root.op(self.SVar('moduletbl'))
 
 	@property
 	def ParamTable(self):
-		return self._root.op(self.sVar('paramtbl'))
+		return self._root.op(self.SVar('paramtbl'))
 
 	def GetModules(self, fakes=False):
-		modtbl = self.moduleTable
+		modtbl = self.ModuleTable
 		for mname in modtbl.col('name')[1:]:
 			if not fakes and modtbl[mname, 'fake'] == '1':
 				continue
@@ -522,21 +522,21 @@ class VjzSystem:
 					yield m
 
 	def GetModule(self, name):
-		m = self.moduleTable[name, 'path']
+		m = self.ModuleTable[name, 'path']
 		m = op(m) if m else None
 		if m is None:
 			raise Exception('module not found: "' + name + '"')
 		return VjzModule.get(m)
 
 	def SaveParamValues(self):
-		tbl = self._root.op(self.sVar('paramstatetbl'))
-		for m in self.getModules():
+		tbl = self._root.op(self.SVar('paramstatetbl'))
+		for m in self.GetModules():
 			m.SaveParamValues(tbl)
 		tbl.save(tbl.par.file.val)
 
 	def LoadParamValues(self):
-		tbl = self._root.op(self.sVar('paramstatetbl'))
-		for m in self.getModules():
+		tbl = self._root.op(self.SVar('paramstatetbl'))
+		for m in self.GetModules():
 			print('loading param values in: ', m.ModPath)
 			m.LoadParamValues(tbl)
 
