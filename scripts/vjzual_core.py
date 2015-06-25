@@ -150,13 +150,21 @@ def deprecatedMethod(origFn):
 		return origFn(*args, **kwargs)
 	return newFn
 
+def _safeTestForAttr(comp, name):
+	# This throws a 'object has no attribute..' exception even though it's
+	# just a hasattr() check, probably due to TD's promoted extension lookup
+	try:
+		return hasattr(comp, name)
+	except:
+		return False
+
 class VjzParam:
 	def __init__(self, comp):
 		self._comp = comp
 
 	@staticmethod
 	def get(comp):
-		if hasattr(comp, 'paramDef'):
+		if _safeTestForAttr(comp, 'paramDef') or _safeTestForAttr(comp, 'ParamDef'):
 			return comp
 		if comp.ext and hasattr(comp.ext, 'VjzParam'):
 			return comp.ext.VjzParam
@@ -257,7 +265,7 @@ class VjzParam:
 
 	@property
 	def ParamMidiName(self):
-		m = self.paramMidiMapping
+		m = self.ParamMidiMapping
 		return m[1, 'name'].val if m else None
 
 	@ParamMidiName.setter
@@ -277,40 +285,41 @@ class VjzParam:
 		self._comp.op('midictllist/set').run(i, abbr)
 
 	def UpdateParamTableEntry(self, vals):
-		updateTableRow(self.PVar('editableparamtbl'), self.paramName, vals)
+		updateTableRow(self.PVar('editableparamtbl'), self.ParamName, vals)
 
 	def SaveParamMidiMapping(self):
-		mapping = self.paramMidiMapping
+		mapping = self.ParamMidiMapping
 		if not mapping:
 			dev, ctl = '', ''
 		else:
 			dev, ctl = mapping[1, 'mididev'].val, mapping[1, 'midictl'].val
-		self.updateParamTableEntry({'mididev': dev, 'midictl': ctl})
+		self.UpdateParamTableEntry({'mididev': dev, 'midictl': ctl})
 
 	def LoadParamMidiMapping(self):
-		pdef = self.paramDef
+		pdef = self.ParamDef
 		if not pdef:
 			return
 		dev, ctl = pdef[1, 'mididev'].val, pdef[1, 'midictl'].val
 		if not dev or not ctl:
-			self.paramMidiName = None
+			self.ParamMidiName = None
 		else:
-			self.paramMidiName = dev[0] + ':' + ctl
+			self.ParamMidiName = dev[0] + ':' + ctl
 
 	def SaveParamValue(self, tbl):
-		val = self.paramValue
-		updateTableRow(tbl, self.paramName, {'value': val}, addMissing=True)
+		val = self.ParamValue
+		updateTableRow(tbl, self.ParamName, {'value': val}, addMissing=True)
 
 	def LoadParamValue(self, tbl):
-		val = tbl[self.paramName, 1]
+		val = tbl[self.ParamName, 1]
 		if val is not None:
-			self.paramValue = float(val)
+			self.ParamValue = float(val)
 
 	def ResetParamToDefault(self):
-		val = self.paramDef[1, 'default']
+		val = self.ParamDef[1, 'default']
 		if val is None:
-			raise Exception('Parameter {0} does not have a default value and cannot be reset'.format(self.paramName))
-		self.paramValue = val.val
+			raise Exception('Parameter {0} does not have a default value and cannot be reset'.format(self.ParamName))
+		self.ParamValue = val.val
+
 
 class VjzModule:
 	def __init__(self, comp):
@@ -318,7 +327,7 @@ class VjzModule:
 
 	@staticmethod
 	def get(comp):
-		if hasattr(comp, 'modName'):
+		if _safeTestForAttr(comp, 'modName') or _safeTestForAttr(comp, 'ModName'):
 			return comp
 		if comp.ext and hasattr(comp.ext, 'VjzModule'):
 			return comp.ext.VjzModule
@@ -384,7 +393,7 @@ class VjzModule:
 
 	@property
 	def ModName(self):
-		return self.mVar('modname')
+		return self.MVar('modname')
 
 	@property
 	def ModPath(self):
@@ -392,23 +401,23 @@ class VjzModule:
 
 	@property
 	def ModParamTable(self):
-		return self._comp.op(self.mVar('modparamtbl'))
+		return self._comp.op(self.MVar('modparamtbl'))
 
 	@property
 	def ModParamNames(self):
-		return [c.val for c in self.modParamTable.col('name')[1:]]
+		return [c.val for c in self.ModParamTable.col('name')[1:]]
 
 	@property
 	def ModParamLocalNames(self):
-		return [c.val for c in self.modParamTable.col('localname')[1:]]
+		return [c.val for c in self.ModParamTable.col('localname')[1:]]
 
 	@property
 	def ModParamObjects(self):
-		pnames = self.modParamLocalNames
+		pnames = self.ModParamLocalNames
 		for p in pnames:
-			pop = self.modParam(p)
+			pop = self.ModParam(p)
 			if not pop:
-				print('parameter component not found for param "' + p + '" in module "' + self.modName + '"')
+				print('parameter component not found for param "' + p + '" in module "' + self.ModName + '"')
 			yield pop
 
 	def ModParam(self, name):
@@ -417,13 +426,13 @@ class VjzModule:
 
 	def SaveParamValues(self, tbl):
 		tbl = argToOp(tbl)
-		print('saving module ' + self.modName + ' to ' + tbl.path)
-		pnames = self.modParamLocalNames
-		pvals = self._comp.op(self.mVar('modparamsout'))
+		print('saving module ' + self.ModName + ' to ' + tbl.path)
+		pnames = self.ModParamLocalNames
+		pvals = self._comp.op(self.MVar('modparamsout'))
 		for p in pnames:
-			pop = self.modParam(p)
+			pop = self.ModParam(p)
 			if pop:
-				pop.saveParamValue(tbl)
+				pop.SaveParamValue(tbl)
 				continue
 			elif pvals:
 				c = pvals.chan(p)
@@ -434,17 +443,17 @@ class VjzModule:
 
 	def LoadParamValues(self, tbl):
 		tbl = argToOp(tbl)
-		pnames = self.modParamLocalNames
+		pnames = self.ModParamLocalNames
 		for p in pnames:
-			pop = self.modParam(p)
+			pop = self.ModParam(p)
 			if pop:
-				pop.loadParamValue(tbl)
+				pop.LoadParamValue(tbl)
 			else:
-				print('cannot load parameter ' + self.modPath + ' : ' + p)
+				print('cannot load parameter ' + self.ModPath + ' : ' + p)
 
 	def ResetParamsToDefaults(self):
-		for p in self.modParamObjects:
-			p.resetParamToDefault()
+		for p in self.ModParamObjects:
+			p.ResetParamToDefault()
 
 class VjzSystem:
 	def __init__(self, root):
@@ -512,13 +521,13 @@ class VjzSystem:
 	def SaveParamValues(self):
 		tbl = self._root.op(self.sVar('paramstatetbl'))
 		for m in self.getModules():
-			m.saveParamValues(tbl)
+			m.SaveParamValues(tbl)
 		tbl.save(tbl.par.file.val)
 
 	def LoadParamValues(self):
 		tbl = self._root.op(self.sVar('paramstatetbl'))
 		for m in self.getModules():
-			print('loading param values in: ', m.modPath)
-			m.loadParamValues(tbl)
+			print('loading param values in: ', m.ModPath)
+			m.LoadParamValues(tbl)
 
 VJZ = VjzSystem(op('/_'))
