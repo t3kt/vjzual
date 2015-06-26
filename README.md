@@ -34,3 +34,12 @@ Each module has zero or more parameters. A parameter is a named value that contr
 
 ## Development Process
 I began my previous efforts to develop this sort of system by trying to first determine what the system's structure should be, then develop the module shells, and then fill them in. This tended to result in over-engineered incomplete systems that didn't do anything useful. So, rather than attempting to start with a completely pre-planned structure, I started vjzual as a large (disorganized) video processing network. Once that was working, I grouped parts of the network into logical units (such as a feedback loop, a delay effect, a disortion effect, or a source clip). Once that was done, I identified parts of the modules that were common to all of them, and started to standardize them and create shared subsystems and components to help with that process.
+
+
+## Setup Instructions and Workarounds
+There are currently some bugs which require workarounds when launching the system. To deal with them:
+
+1. right-click /_/init and select "clear script errors"
+2. toggle cooking on /_/mainout_selector
+3. right click /_/RUN_init and select "run script"
+4. in the ui panel switch box (/_/ui_switches), toggle the switches for anything that shows up as enabled, and reenable anything that you want to show (see [issue #38](../../issues/38))
