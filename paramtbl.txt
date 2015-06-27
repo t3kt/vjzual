@@ -52,10 +52,6 @@ feedback4:time_warping	0	0		codev2	s15			float
 feedback5:level	0	0						float
 feedback5:delay_length	0	0						float
 feedback5:delay_mix	0	0						float
-linedisp:rate	0	0						float
-linedisp:warp_amount	0	0						float
-linedisp:period	0	0						float
-linedisp:level	0	0						float
 timedist:level	0	0						float
 timedist:amount	0	0						float
 timedist:edge_amount	0	0						float

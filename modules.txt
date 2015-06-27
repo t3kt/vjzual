@@ -4,7 +4,6 @@ coloradj2	/_/layer2/color_adjust	filter	color adjust 2	125	1
 coloradj3	/_/layer3/color_adjust	filter	color adjust 3	125	1	
 feedback1	/_/layer1/feedback_1	filter	feedback 1	130	1	
 echo1	/_/layer1/echo_1	filter	echo 1	75	1	
-linedisp	/_/layer1/line_displacement	filter	line displacement	125	1	
 timedist	/_/layer1/time_distortion	filter	time distortion	200	1	
 warp1	/_/layer1/warp1	filter	warp 1	75	1	
 warpecho1	/_/layer2/warp_and_echo1	filter	warp+echo 1	250	1	
