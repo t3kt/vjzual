@@ -42,4 +42,4 @@ There are currently some bugs which require workarounds when launching the syste
 1. right-click /_/init and select "clear script errors"
 2. toggle cooking on /_/mainout_selector
 3. right click /_/RUN_init and select "run script"
-4. in the ui panel switch box (/_/ui_switches), toggle the switches for anything that shows up as enabled, and reenable anything that you want to show (see [issue #38](../../issues/38))
+4. in the ui panel switch box (/_/ui_switches), toggle the switches for anything that shows up as enabled, and reenable anything that you want to show (see [issue #38](https://github.com/t3kt/issues/38))
