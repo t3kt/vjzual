@@ -180,69 +180,6 @@ class VjzParam:
 		print('unable to find VjzParam extension for comp: ' + comp.path)
 		return None
 
-	@deprecatedMethod
-	def pVar(self, name):
-		return self.PVar(name)
-
-	@deprecatedMethod
-	@property
-	def paramDef(self):
-		return self.ParamDef
-
-	@property
-	@deprecatedMethod
-	def paramValue(self):
-		return self.ParamValue
-
-	@paramValue.setter
-	@deprecatedMethod
-	def paramValue(self, val):
-		self.ParamValue = val
-
-	@property
-	@deprecatedMethod
-	def paramName(self):
-		return self.ParamName
-
-	@property
-	@deprecatedMethod
-	def paramMidiMapping(self):
-		return self.ParamMidiMapping
-
-	@property
-	@deprecatedMethod
-	def paramMidiName(self):
-		return self.ParamMidiName
-
-	@paramMidiName.setter
-	@deprecatedMethod
-	def paramMidiName(self, name):
-		self.ParamMidiName = name
-
-	@deprecatedMethod
-	def updateParamTableEntry(self, vals):
-		self.UpdateParamTableEntry(vals)
-
-	@deprecatedMethod
-	def saveParamMidiMapping(self):
-		return self.SaveParamMidiMapping()
-
-	@deprecatedMethod
-	def loadParamMidiMapping(self):
-		return self.LoadParamMidiMapping()
-
-	@deprecatedMethod
-	def saveParamValue(self, tbl):
-		self.SaveParamValue(tbl)
-
-	@deprecatedMethod
-	def loadParamValue(self, tbl):
-		self.LoadParamValue(tbl)
-
-	@deprecatedMethod
-	def resetParamToDefault(self):
-		return self.ResetParamToDefault()
-
 	def PVar(self, name):
 		return self._comp.var(name)
 
@@ -348,56 +285,6 @@ class VjzModule:
 		print('unable to find VjzModule extension for comp: ' + comp.path)
 		return None
 
-	@deprecatedMethod
-	def mVar(self, name):
-		return self.MVar(name)
-
-	@property
-	@deprecatedMethod
-	def modName(self):
-		return self.ModName
-
-	@property
-	@deprecatedMethod
-	def modPath(self):
-		return self.ModPath
-
-	@property
-	@deprecatedMethod
-	def modParamTable(self):
-		return self.ModParamTable
-
-	@property
-	@deprecatedMethod
-	def modParamNames(self):
-		return self.ModParamNames
-
-	@property
-	@deprecatedMethod
-	def modParamLocalNames(self):
-		return self.ModParamLocalNames
-
-	@property
-	@deprecatedMethod
-	def modParamObjects(self):
-		return self.ModParamObjects
-
-	@deprecatedMethod
-	def modParam(self, name):
-		return self.ModParam(name)
-
-	@deprecatedMethod
-	def saveParamValues(self, tbl):
-		return self.SaveParamValues(tbl)
-
-	@deprecatedMethod
-	def loadParamValues(self, tbl):
-		return self.LoadParamValues(tbl)
-
-	@deprecatedMethod
-	def resetParamsToDefaults(self):
-		return self.ResetParamsToDefaults()
-
 	def MVar(self, name):
 		return self._comp.var(name)
 
@@ -468,36 +355,6 @@ class VjzModule:
 class VjzSystem:
 	def __init__(self, root):
 		self._root = root
-
-	@deprecatedMethod
-	def sVar(self, name):
-		return self.SVar(name)
-
-	@property
-	@deprecatedMethod
-	def moduleTable(self):
-		return self.ModuleTable
-
-	@property
-	@deprecatedMethod
-	def paramTable(self):
-		return self.ParamTable
-
-	@deprecatedMethod
-	def getModules(self, fakes=False):
-		return self.GetModules(fakes=fakes)
-
-	@deprecatedMethod
-	def getModule(self, name):
-		return self.GetModule(name)
-
-	@deprecatedMethod
-	def saveParamValues(self):
-		return self.SaveParamValues()
-
-	@deprecatedMethod
-	def loadParamValues(self):
-		return self.LoadParamValues()
 
 	def SVar(self, name):
 		return self._root.var(name)
