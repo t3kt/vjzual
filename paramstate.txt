@@ -114,3 +114,6 @@ srcselmaster:src	src_1
 srcselmaster:feedback	0
 mainoutsel:src	master:wet
 mainoutsel:feedback	0
+coloradj1:invert	0
+coloradj2:invert	0
+coloradj3:invert	0

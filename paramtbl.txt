@@ -64,12 +64,15 @@ warp2:amount	0	0							float
 coloradj1:saturation	.5	0	1						float
 coloradj1:gamma	.5	0	1						float
 coloradj1:contrast	.5	0	1						float
+coloradj1:invert	0								bool
 coloradj2:saturation	.5	0	1						float
 coloradj2:gamma	.5	0	1						float
 coloradj2:contrast	.5	0	1						float
+coloradj2:invert	0								bool
 coloradj3:saturation	.5	0	1						float
 coloradj3:gamma	.5	0	1						float
 coloradj3:contrast	.5	0	1						float
+coloradj3:invert	0								bool
 mastercoloradj:saturation	.5	0	1						float
 mastercoloradj:gamma	.5	0	1						float
 mastercoloradj:contrast	.5	0	1						float
