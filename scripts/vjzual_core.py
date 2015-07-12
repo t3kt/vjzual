@@ -248,7 +248,7 @@ class VjzParam:
 			self.ParamMidiName = dev[0] + ':' + ctl
 
 	def SaveParamValue(self, tbl):
-		val = self.ParamValue
+		val = round(self.ParamValue, 4)
 		updateTableRow(tbl, self.ParamName, {'value': val}, addMissing=True)
 
 	def LoadParamValue(self, tbl):

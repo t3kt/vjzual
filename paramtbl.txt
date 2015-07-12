@@ -123,3 +123,15 @@ rampgen1:phase	.5	0	1				0		float
 rampgen1:period	.5	0					0		float
 rampgen1:mirror	1	0					0		bool
 flip1:xfade	.5	0					0		float
+flip1:blendop	0								menu
+flip1:swap	0								bool
+srcsel1:src									menu
+srcsel1:feedback	0								bool
+srcsel2:src									menu
+srcsel2:feedback	0								bool
+srcsel3:src									menu
+srcsel3:feedback	0								bool
+srcselmaster:src									menu
+srcselmaster:feedback	0								bool
+mainoutsel:src									menu
+mainoutsel:feedback	0								bool
