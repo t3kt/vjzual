@@ -33,6 +33,9 @@ warpecho1:warp_amount	.4	0							float
 warpecho1:warp_mix	.4	0							float
 warpecho1:delay_length	.4	0							float
 warpecho1:delay_mix	.4	0							float
+warpecho1:xfade	.5	0					0		float
+warpecho1:blendop	0								menu
+warpecho1:swap	0								bool
 warp1:amount	.2	0							float
 warp1:level	.5	0							float
 mastercoloradj:level	0	0							float

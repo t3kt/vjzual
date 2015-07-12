@@ -117,3 +117,6 @@ mainoutsel:feedback	0
 coloradj1:invert	0
 coloradj2:invert	0
 coloradj3:invert	0
+warpecho1:xfade	0.593
+warpecho1:blendop	difference
+warpecho1:swap	0
