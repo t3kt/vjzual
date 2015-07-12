@@ -87,7 +87,7 @@ echo2:bypass	0.0
 feedback4:bypass	0.0
 flip1:bypass	0.0
 edge:bypass	1.0
-feedback5:bypass	1.0
+feedback5:bypass	0.0
 mastercoloradj:bypass	0.0
 coloradj1:bypass	0.0
 coloradj2:bypass	0.0
