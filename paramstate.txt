@@ -110,7 +110,7 @@ srcsel2:src	src_9
 srcsel2:feedback	0
 srcsel3:src	src_8
 srcsel3:feedback	0
-srcselmaster:src	src_1
+srcselmaster:src	mixer:wet
 srcselmaster:feedback	0
 mainoutsel:src	master:wet
 mainoutsel:feedback	0
