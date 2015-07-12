@@ -266,6 +266,11 @@ class VjzParam:
 class VjzModule:
 	def __init__(self, comp):
 		self._comp = comp
+		callbacks = self._comp.op('callbacks')
+		if callbacks and callbacks.isDAT:
+			self._callbacks = mod(callbacks)
+		else:
+			self._callbacks = None
 
 	@staticmethod
 	def get(comp):
@@ -284,6 +289,11 @@ class VjzModule:
 					return e
 		print('unable to find VjzModule extension for comp: ' + comp.path)
 		return None
+
+	def _InvokeCallback(self, name, *args):
+		if not self._callbacks or not hasattr(self._callbacks, name):
+			return None
+		return getattr(self._callbacks, name)(self, *args)
 
 	def MVar(self, name):
 		return self._comp.var(name)
@@ -325,28 +335,38 @@ class VjzModule:
 		tbl = argToOp(tbl)
 		print('saving module ' + self.ModName + ' to ' + tbl.path)
 		pnames = self.ModParamLocalNames
+		for pname in pnames:
+			self._SaveParamValue(tbl, pname)
+
+	def _SaveParamValue(self, tbl, pname):
+		if self._InvokeCallback('SaveParamValue', tbl, pname) is True:
+			return
+		pop = self.ModParam(pname)
+		if pop:
+			pop.SaveParamValue(tbl)
+			return
 		pvals = self._comp.op(self.MVar('modparamsout'))
-		for p in pnames:
-			pop = self.ModParam(p)
-			if pop:
-				pop.SaveParamValue(tbl)
-				continue
-			elif pvals:
-				c = pvals.chan(p)
-				if c is not None:
-					updateTableRow(tbl, p, {'value': c[0]})
-					continue
-			print('cannot save parameter ' + p)
+		if pvals:
+			c = pvals.chan(pname)
+			if c is not None:
+				updateTableRow(tbl, pname, {'value': c[0]})
+				return
+		print('cannot save parameter ' + pname)
 
 	def LoadParamValues(self, tbl):
 		tbl = argToOp(tbl)
 		pnames = self.ModParamLocalNames
-		for p in pnames:
-			pop = self.ModParam(p)
-			if pop:
-				pop.LoadParamValue(tbl)
-			else:
-				print('cannot load parameter ' + self.ModPath + ' : ' + p)
+		for pname in pnames:
+			self._LoadParamValue(tbl, pname)
+
+	def _LoadParamValue(self, tbl, pname):
+		if self._InvokeCallback('LoadParamValue', tbl, pname) is True:
+			return
+		pop = self.ModParam(pname)
+		if pop:
+			pop.LoadParamValue(tbl)
+		else:
+			print('cannot load parameter ' + self.ModPath + ' : ' + pname)
 
 	def ResetParamsToDefaults(self):
 		for p in self.ModParamObjects:

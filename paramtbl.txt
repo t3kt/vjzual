@@ -122,3 +122,4 @@ rampgen1:angle	.5	0	1				0		float
 rampgen1:phase	.5	0	1				0		float
 rampgen1:period	.5	0					0		float
 rampgen1:mirror	1	0					0		bool
+flip1:xfade	.5	0					0		float

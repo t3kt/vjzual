@@ -97,3 +97,8 @@ rampgen1:phase	0.6936146020889282
 rampgen1:period	0.5
 rampgen1:mirror	1.0
 warp1:bypass	0.0
+flip1:xfade	0.512563
+feedback5:mask_mix	0.5570470094680786
+feedback5:mask_contrast	0.5906040072441101
+feedback5:mask_gamma	0.4161069989204407
+feedback5:mask_saturation	0.0
