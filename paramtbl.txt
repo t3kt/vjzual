@@ -53,8 +53,8 @@ feedback5:level	0	0							float
 feedback5:delay_length	0	0							float
 feedback5:delay_mix	0	0							float
 feedback5:mask_mix	0	0							float
-feedback5:mask_contrast	0	0							float
-feedback5:mask_gamma	.5	0	1						float
+feedback5:mask_contrast	0	0						1	float
+feedback5:mask_gamma	.5	0	1					1	float
 feedback5:mask_saturation	.5	0	1					1	float
 timedist:level	0	0							float
 timedist:amount	0	0							float
