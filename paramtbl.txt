@@ -44,7 +44,7 @@ edge1:amount	0	0							float
 feedback2:level	0	0							float
 feedback2:warp_amount	0	0							float
 feedback2:edge_amount	0	0							float
-feedback2:scale_variation	0	0							float
+feedback2:scale_variation	0	0						1	float
 feedback4:level	0	0		codev2	s16				float
 feedback4:warp_amount	0	0							float
 feedback4:scale	0.5	0	1						float
@@ -58,7 +58,7 @@ feedback5:mask_gamma	.5	0	1					1	float
 feedback5:mask_saturation	.5	0	1					1	float
 timedist:level	0	0							float
 timedist:amount	0	0							float
-timedist:edge_amount	0	0							float
+timedist:edge_amount	0	0						1	float
 warp2:level	0	0							float
 warp2:amount	0	0							float
 coloradj1:saturation	.5	0	1						float
@@ -91,14 +91,14 @@ noisegen1:period1	.5	0							float
 noisegen1:period2	.5	0							float
 noisegen1:saturation1	1	0							float
 noisegen1:saturation2	1	0							float
-noisegen1:spread1	1	0							float
-noisegen1:spread2	1	0							float
+noisegen1:spread1	1	0						1	float
+noisegen1:spread2	1	0						1	float
 noisegen1:gain1	1	0							float
 noisegen1:gain2	1	0							float
 noisegen1:opacity1	1	0							float
 noisegen1:opacity2	1	0							float
-noisegen1:exp1	1	0							float
-noisegen1:exp2	1	0							float
+noisegen1:exp1	1	0						1	float
+noisegen1:exp2	1	0						1	float
 coloradj1:bypass	0	0					1		bool
 coloradj2:bypass	0	0					1		bool
 coloradj3:bypass	0	0					1		bool
