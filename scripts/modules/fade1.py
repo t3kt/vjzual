@@ -14,6 +14,7 @@ def LoadParamValue(module, tbl, pname):
 		return True
 	elif pname == 'swap':
 		op('blend').par.Swaporder = float(val) > 0.5
+		return True
 
 def SaveParamValue(module, tbl, pname):
 	if not pname in ['xfade', 'blendop', 'swap']:
