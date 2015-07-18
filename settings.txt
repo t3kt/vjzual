@@ -57,3 +57,5 @@ leapymin	0.1
 leapymax	0.4
 leapzmin	0.16
 leapzmax	-0.16
+uistate	/_/local/uistate
+editableuistate	/_/local/set_uistate
