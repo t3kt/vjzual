@@ -1,17 +1,17 @@
 name	default	smooth	showmidbar	mididev	midictl	path	hidden	advanced	type
-global:rate	.5	0		codev2	s25				float
-src1:rate	.5	0		codev2	s26				float
-src1:index	0	0		codev2	s18				float
-src2:rate	.5	0		codev2	s27				float
-src2:index	0	0		codev2	s19				float
-src3:rate	.5	0		codev2	s28				float
-src3:index	0	0		codev2	s20				float
-src4:rate	.5	0		codev2	s29				float
-src4:index	0	0		codev2	s21				float
-src5:rate	.5	0		codev2	s30				float
-src5:index	0	0		codev2	s22				float
-src6:rate	.5	0		codev2	s31				float
-src6:index	0	0		codev2	s23				float
+global:rate	.5	0							float
+src1:rate	.5	0							float
+src1:index	0	0							float
+src2:rate	.5	0							float
+src2:index	0	0							float
+src3:rate	.5	0							float
+src3:index	0	0							float
+src4:rate	.5	0							float
+src4:index	0	0							float
+src5:rate	.5	0							float
+src5:index	0	0							float
+src6:rate	.5	0							float
+src6:index	0	0							float
 src7:rate	.5	0							float
 src7:index	0	0							float
 src8:rate	.5	0							float
