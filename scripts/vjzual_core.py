@@ -125,9 +125,9 @@ def withoutDictEmptyStrings(d):
 	return {k: d[k] for k in d if d[k] != ""}
 
 def DEBUGLOG(s):
-	log = op('/_/LOG')
-	log.text += s + '\n'
-	log.save('DEBUGLOG.txt')
+	# log = op('/_/LOG')
+	# log.text += s + '\n'
+	# log.save('DEBUGLOG.txt')
 	pass
 
 def getOrAddParamPage(comp, name):
