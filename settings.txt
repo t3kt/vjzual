@@ -7,7 +7,8 @@ editableparamtbl	/_/local/paramtbl_in
 paramstatetbl	/_/local/paramstatetbl
 params	/_/params
 inparams	/_/inputparams
-smoothparams	/_/smoothparams
+inputparams	/_/inputparams
+outparams	/_/outparams
 comps	/_/components
 mlocal	/_/components/module/local
 mheader	/_/components/module/module_header
@@ -20,7 +21,6 @@ codectrlmap	/_/local/codectrlmap
 codetable	/_/local/codetable
 midictrlmap	/_/local/ctrlmap
 midictrlabbrmap	/_/local/ctrlabbrmap
-inputparams	/_/inputparams
 outwindow	/_/mainoutwindow
 mainout	/_/mainout
 audioviz_video	/_/audioviz_video
@@ -59,4 +59,4 @@ leapzmin	0.16
 leapzmax	-0.16
 uistate	/_/local/uistate
 editableuistate	/_/local/set_uistate
-paramuih	20
+paramuih	25
