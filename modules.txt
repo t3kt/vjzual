@@ -23,6 +23,7 @@ layer2	/_/layer2	chain	layer 2	1000	0
 layer3	/_/layer3	chain	layer 3	1000	0	
 mixer	/_/mixer	chain	mixer	1000	0	
 master	/_/master	chain	master	1000	0	
+generators	/_/generators	chain	generators	1000	0	
 srcsel1	/_/layer1/src_selector	source	source sel 1	150	1	
 srcsel2	/_/layer2/src_selector	source	source sel 2	150	1	
 srcsel3	/_/layer3/src_selector	source	source sel 3	150	1	

@@ -14,6 +14,7 @@ mlocal	/_/components/module/local
 mheader	/_/components/module/module_header
 moverlay	/_/components/module/overlay
 simpleinit	/_/components/simple_init
+simplemodinit	/_/components/simple_module_init
 defaults	/_/local/defaults
 twisterctrlmap	/_/local/twisterctrlmap
 twistertable	/_/local/twistertable
