@@ -30,7 +30,11 @@ The general structure is a flow from one or more sources through some series of 
 * several standard switches including bypass, solo, preview, collapse/expand UI, show/hide viewers
 
 ### Parameters
-Each module has zero or more parameters. A parameter is a named value that controls some aspect of a module's behavior. Each parameter shows in the module's UI. Currently, the only type of supported parameter is a float value, which is shown as a slider with a value range of 0.0 to 1.0 (see issues [#16](https://github.com/t3kt/vjzual/issues/16) and [#52](https://github.com/t3kt/vjzual/issues/52) for efforts to add other parameter types). A parameter can be mapped to a MIDI CC input/output, and can be overridden with a modulation signal (e.g. an LFO), using the dropdown menus next to the slider. The range slider under the main value slider controls how modulation signals are mapped to the parameter's value range.
+Each module has zero or more parameters. A parameter is a named value that controls some aspect of a module's behavior. Parameter values can be loaded and saved (see the paramstate.txt file).
+
+Most parameters are float values, ranging from 0 to 1, which are represented by a clone of the float_param.tox component. This component provides a UI with a slider, name label, and support for loading/saving values, resetting to defaults, mapping to MIDI controls, and LFO/audio modulation. These parameters each have an instance of the vjzual.VjzParam extension class.
+
+Some parameters are considered virtual parameters, and do not have a corresponding float_param.tox component. They currently exist as specialized load/save handlers in modules, which allow various other types of values to be used which aren't supported by the standard component. They can be strings, booleans, or any other type that can be converted to/from strings.
 
 ## Development Process
 I began my previous efforts to develop this sort of system by trying to first determine what the system's structure should be, then develop the module shells, and then fill them in. This tended to result in over-engineered incomplete systems that didn't do anything useful. So, rather than attempting to start with a completely pre-planned structure, I started vjzual as a large (disorganized) video processing network. Once that was working, I grouped parts of the network into logical units (such as a feedback loop, a delay effect, a disortion effect, or a source clip). Once that was done, I identified parts of the modules that were common to all of them, and started to standardize them and create shared subsystems and components to help with that process.
@@ -40,6 +44,5 @@ I began my previous efforts to develop this sort of system by trying to first de
 There are currently some bugs which require workarounds when launching the system. To deal with them:
 
 1. right-click /_/init and select "clear script errors"
-2. toggle cooking on /_/mainout_selector
-3. right click /_/RUN_init and select "run script"
-4. in the ui panel switch box (/_/ui_switches), toggle the switches for anything that shows up as enabled, and reenable anything that you want to show (see [issue #38](https://github.com/t3kt/issues/38))
+2. right click /_/RUN_init and select "run script"
+3. in the ui panel switch box (/_/ui_switches), toggle the switches for anything that shows up as enabled, and reenable anything that you want to show (see [issue #38](https://github.com/t3kt/issues/38))
