@@ -84,27 +84,27 @@ mastercoloradj:postcontrast	.5	1						float
 mastercoloradj:invert1	0							bool
 mastercoloradj:invert2	0							bool
 mastercoloradj:invert3	0							bool
-mastercoloradj:blacklevel1	0							float
-mastercoloradj:blacklevel2	0							float
-mastercoloradj:blacklevel3	0							float
-mastercoloradj:brightness11	0							float
-mastercoloradj:brightness12	0							float
-mastercoloradj:brightness13	0							float
-mastercoloradj:gamma11	0							float
-mastercoloradj:gamma12	0							float
-mastercoloradj:gamma13	0							float
-mastercoloradj:contrast1	0							float
-mastercoloradj:contrast2	0							float
-mastercoloradj:contrast3	0							float
-mastercoloradj:highr1	1							float
-mastercoloradj:highr2	1							float
-mastercoloradj:highr3	1							float
-mastercoloradj:highg1	1							float
-mastercoloradj:highg2	1							float
-mastercoloradj:highg3	1							float
-mastercoloradj:highb1	1							float
-mastercoloradj:highb2	1							float
-mastercoloradj:highb3	1							float
+mastercoloradj:blacklevel1	0						1	float
+mastercoloradj:blacklevel2	0						1	float
+mastercoloradj:blacklevel3	0						1	float
+mastercoloradj:brightness11	0						1	float
+mastercoloradj:brightness12	0						1	float
+mastercoloradj:brightness13	0						1	float
+mastercoloradj:gamma11	0						1	float
+mastercoloradj:gamma12	0						1	float
+mastercoloradj:gamma13	0						1	float
+mastercoloradj:contrast1	0						1	float
+mastercoloradj:contrast2	0						1	float
+mastercoloradj:contrast3	0						1	float
+mastercoloradj:highr1	1						1	float
+mastercoloradj:highr2	1						1	float
+mastercoloradj:highr3	1						1	float
+mastercoloradj:highg1	1						1	float
+mastercoloradj:highg2	1						1	float
+mastercoloradj:highg3	1						1	float
+mastercoloradj:highb1	1						1	float
+mastercoloradj:highb2	1						1	float
+mastercoloradj:highb3	1						1	float
 gridgen:rate	.5							float
 gridgen:period	.5							float
 gridgen:saturation1	0							float
