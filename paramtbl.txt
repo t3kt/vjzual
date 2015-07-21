@@ -38,8 +38,7 @@ warpecho1:blendop	0								menu
 warpecho1:swap	0								bool
 warp1:amount	.2	0							float
 warp1:level	.5	0							float
-mastercoloradj:level	0	0							float
-mastercoloradj:mode	0	0							float
+mastercoloradj:mode	0	0							menu
 edge:level	0	0							float
 edge:amount	0	0		twister	s4				float
 edge1:level	0	0							float
@@ -82,6 +81,30 @@ mastercoloradj:contrast	.5	0	1						float
 mastercoloradj:hueoffset	.5	0	1						float
 mastercoloradj:postgamma	.5	0	1						float
 mastercoloradj:postcontrast	.5	0	1						float
+mastercoloradj:invert1	0								bool
+mastercoloradj:invert2	0								bool
+mastercoloradj:invert3	0								bool
+mastercoloradj:blacklevel1	0								float
+mastercoloradj:blacklevel2	0								float
+mastercoloradj:blacklevel3	0								float
+mastercoloradj:brightness11	0								float
+mastercoloradj:brightness12	0								float
+mastercoloradj:brightness13	0								float
+mastercoloradj:gamma11	0								float
+mastercoloradj:gamma12	0								float
+mastercoloradj:gamma13	0								float
+mastercoloradj:contrast1	0								float
+mastercoloradj:contrast2	0								float
+mastercoloradj:contrast3	0								float
+mastercoloradj:highr1	1								float
+mastercoloradj:highr2	1								float
+mastercoloradj:highr3	1								float
+mastercoloradj:highg1	1								float
+mastercoloradj:highg2	1								float
+mastercoloradj:highg3	1								float
+mastercoloradj:highb1	1								float
+mastercoloradj:highb2	1								float
+mastercoloradj:highb3	1								float
 gridgen:rate	.5	0							float
 gridgen:period	.5	0							float
 gridgen:saturation1	0	0							float
