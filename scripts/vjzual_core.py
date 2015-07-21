@@ -161,6 +161,12 @@ def _safeTestForAttr(comp, name):
 class VjzParam:
 	def __init__(self, comp):
 		self._comp = comp
+		page = comp.appendCustomPage('Vjzparam')
+		page.appendStr('Paramname', label='Parameter Name')
+		page.appendToggle('Scale', label='Scale Parameter Value')
+		minmax = page.appendFloat('Scalerange', label='Scale Min/Max', size=2)
+		minmax[0].default = 0
+		minmax[1].default = 1
 
 	@staticmethod
 	def get(comp):
@@ -266,6 +272,8 @@ class VjzParam:
 class VjzModule:
 	def __init__(self, comp):
 		self._comp = comp
+		page = comp.appendCustomPage('Vjzmodule')
+		page.appendStr('Modname', label='Module name')
 		callbacks = self._comp.op('callbacks')
 		if callbacks and callbacks.isDAT:
 			self._callbacks = mod(callbacks)

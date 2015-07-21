@@ -1,169 +1,167 @@
-name	default	showmidbar	mididev	midictl	path	hidden	advanced	type
-global:rate	.5							float
-src1:rate	.5							float
-src1:index	0							float
-src2:rate	.5							float
-src2:index	0							float
-src3:rate	.5							float
-src3:index	0							float
-src4:rate	.5							float
-src4:index	0							float
-src5:rate	.5							float
-src5:index	0							float
-src6:rate	.5							float
-src6:index	0							float
-src7:rate	.5							float
-src7:index	0							float
-src8:rate	.5							float
-src8:index	0							float
-src9:rate	.5							float
-src9:index	0							float
-feedback1:level	.4		codev2	s3				float
-feedback1:warp_amount	.2		codev2	s4				float
-feedback1:delay_length	.1		codev2	s1				float
-feedback1:delay_mix	.4		codev2	s2				float
-echo1:length	.2							float
-echo1:mix	.4							float
-echo2:length	.3		codev2	s23				float
-echo2:mix	.4		codev2	s24				float
-blend1:mix	.5		codev2	s30				float
-blend2:mix	.5		codev2	s31				float
-blend3:mix	.5		codev2	s32				float
-warpecho1:warp_amount	.4							float
-warpecho1:warp_mix	.4							float
-warpecho1:delay_length	.4							float
-warpecho1:delay_mix	.4							float
-warpecho1:xfade	.5					0		float
-warpecho1:blendop	0							menu
-warpecho1:swap	0							bool
-warp1:amount	.2							float
-warp1:level	.5							float
-mastercoloradj:mode	0							menu
-edge:level	0							float
-edge:amount	0		twister	s4				float
-edge1:level	0							float
-edge1:amount	0							float
-feedback2:level	0							float
-feedback2:warp_amount	0							float
-feedback2:edge_amount	0							float
-feedback2:scale_variation	0						1	float
-feedback4:level	0		codev2	s16				float
-feedback4:warp_amount	0							float
-feedback4:scale	0.5	1						float
-feedback4:time_warping	0		codev2	s15				float
-feedback5:level	0							float
-feedback5:delay_length	0							float
-feedback5:delay_mix	0							float
-feedback5:mask_mix	0							float
-feedback5:mask_contrast	0						1	float
-feedback5:mask_gamma	.5	1					1	float
-feedback5:mask_saturation	.5	1					1	float
-timedist:level	0							float
-timedist:amount	0							float
-timedist:edge_amount	0						1	float
-warp2:level	0							float
-warp2:amount	0							float
-warp2:zoom	0.5	1						float
-warp2:src	0							menu
-warp2:feedback	0							bool
-coloradj1:saturation	.5	1						float
-coloradj1:gamma	.5	1						float
-coloradj1:contrast	.5	1						float
-coloradj1:invert	0							bool
-coloradj2:saturation	.5	1						float
-coloradj2:gamma	.5	1						float
-coloradj2:contrast	.5	1						float
-coloradj2:invert	0							bool
-coloradj3:saturation	.5	1						float
-coloradj3:gamma	.5	1						float
-coloradj3:contrast	.5	1						float
-coloradj3:invert	0							bool
-mastercoloradj:saturation	.5	1						float
-mastercoloradj:gamma	.5	1						float
-mastercoloradj:contrast	.5	1						float
-mastercoloradj:hueoffset	.5	1						float
-mastercoloradj:postgamma	.5	1						float
-mastercoloradj:postcontrast	.5	1						float
-mastercoloradj:invert1	0							bool
-mastercoloradj:invert2	0							bool
-mastercoloradj:invert3	0							bool
-mastercoloradj:blacklevel1	0						1	float
-mastercoloradj:blacklevel2	0						1	float
-mastercoloradj:blacklevel3	0						1	float
-mastercoloradj:brightness11	0						1	float
-mastercoloradj:brightness12	0						1	float
-mastercoloradj:brightness13	0						1	float
-mastercoloradj:gamma11	0						1	float
-mastercoloradj:gamma12	0						1	float
-mastercoloradj:gamma13	0						1	float
-mastercoloradj:contrast1	0						1	float
-mastercoloradj:contrast2	0						1	float
-mastercoloradj:contrast3	0						1	float
-mastercoloradj:highr1	1						1	float
-mastercoloradj:highr2	1						1	float
-mastercoloradj:highr3	1						1	float
-mastercoloradj:highg1	1						1	float
-mastercoloradj:highg2	1						1	float
-mastercoloradj:highg3	1						1	float
-mastercoloradj:highb1	1						1	float
-mastercoloradj:highb2	1						1	float
-mastercoloradj:highb3	1						1	float
-gridgen:rate	.5							float
-gridgen:period	.5							float
-gridgen:saturation1	0							float
-gridgen:saturation2	0							float
-gridgen:hue1	0.5							float
-gridgen:hue2	0.5							float
-gridgen:value1	0.5							float
-gridgen:value2	0.5							float
-gridgen:opacity1	0.5							float
-gridgen:opacity2	0.5							float
-noisegen1:rate	.4							float
-noisegen1:period1	.5							float
-noisegen1:period2	.5							float
-noisegen1:saturation1	1							float
-noisegen1:saturation2	1							float
-noisegen1:spread1	1						1	float
-noisegen1:spread2	1						1	float
-noisegen1:gain1	1							float
-noisegen1:gain2	1							float
-noisegen1:opacity1	1							float
-noisegen1:opacity2	1							float
-noisegen1:exp1	1						1	float
-noisegen1:exp2	1						1	float
-coloradj1:bypass	0					1		bool
-coloradj2:bypass	0					1		bool
-coloradj3:bypass	0					1		bool
-feedback1:bypass	0					1		bool
-echo1:bypass	0					1		bool
-linedisp:bypass	0					1		bool
-timedist:bypass	0					1		bool
-warp1:bypass	0					1		bool
-warpecho1:bypass	0					1		bool
-feedback2:bypass	0					1		bool
-edge1:bypass	0					1		bool
-warp2:bypass	0					1		bool
-echo2:bypass	0					1		bool
-feedback4:bypass	0					1		bool
-flip1:bypass	0					1		bool
-edge:bypass	0					1		bool
-feedback5:bypass	0					1		bool
-mastercoloradj:bypass	0					1		bool
-template:bypass	0					1		bool
-rampgen1:angle	.5	1				0		float
-rampgen1:phase	.5	1				0		float
-rampgen1:period	.5					0		float
-rampgen1:mirror	1					0		bool
-flip1:xfade	.5					0		float
-flip1:blendop	0							menu
-flip1:swap	0							bool
-srcsel1:src								menu
-srcsel1:feedback	0							bool
-srcsel2:src								menu
-srcsel2:feedback	0							bool
-srcsel3:src								menu
-srcsel3:feedback	0							bool
-srcselmaster:src								menu
-srcselmaster:feedback	0							bool
-mainoutsel:src								menu
-mainoutsel:feedback	0							bool
+name	default	showmidbar	mididev	midictl	path	hidden	advanced	scale	scalemin	scalemax	type
+global:rate	.5										float
+src1:rate	.5										float
+src1:index	0										float
+src2:rate	.5										float
+src2:index	0										float
+src3:rate	.5										float
+src3:index	0										float
+src4:rate	.5										float
+src4:index	0										float
+src5:rate	.5										float
+src5:index	0										float
+src6:rate	.5										float
+src6:index	0										float
+src7:rate	.5										float
+src7:index	0										float
+src8:rate	.5										float
+src8:index	0										float
+src9:rate	.5										float
+src9:index	0										float
+feedback1:level	.4		codev2	s3							float
+feedback1:warp_amount	.2		codev2	s4							float
+feedback1:delay_length	.1		codev2	s1							float
+feedback1:delay_mix	.4		codev2	s2							float
+echo1:length	.2										float
+echo1:mix	.4										float
+echo2:length	.3		codev2	s23							float
+echo2:mix	.4		codev2	s24							float
+blend1:mix	.5		codev2	s30							float
+blend2:mix	.5		codev2	s31							float
+blend3:mix	.5		codev2	s32							float
+warpecho1:warp_amount	.4										float
+warpecho1:warp_mix	.4										float
+warpecho1:delay_length	.4										float
+warpecho1:delay_mix	.4										float
+warpecho1:xfade	.5					0					float
+warpecho1:blendop	0										menu
+warpecho1:swap	0										bool
+warp1:amount	.2										float
+warp1:level	.5										float
+mastercoloradj:mode	0										menu
+edge:level	0										float
+edge:amount	0		twister	s4							float
+edge1:level	0										float
+edge1:amount	0										float
+feedback2:level	0										float
+feedback2:warp_amount	0										float
+feedback2:edge_amount	0										float
+feedback2:scale_variation	0						1				float
+feedback4:level	0		codev2	s16							float
+feedback4:warp_amount	0										float
+feedback4:scale	0.5	1									float
+feedback4:time_warping	0		codev2	s15							float
+feedback5:level	0										float
+feedback5:delay_length	0										float
+feedback5:delay_mix	0										float
+feedback5:mask_mix	0										float
+feedback5:mask_contrast	0						1				float
+feedback5:mask_gamma	.5	1					1				float
+feedback5:mask_saturation	.5	1					1				float
+timedist:level	0										float
+timedist:amount	0										float
+timedist:edge_amount	0						1				float
+warp2:level	0										float
+warp2:amount	0										float
+warp2:zoom	0.5	1									float
+coloradj1:saturation	.5	1									float
+coloradj1:gamma	.5	1									float
+coloradj1:contrast	.5	1									float
+coloradj1:invert	0										bool
+coloradj2:saturation	.5	1									float
+coloradj2:gamma	.5	1									float
+coloradj2:contrast	.5	1									float
+coloradj2:invert	0										bool
+coloradj3:saturation	.5	1									float
+coloradj3:gamma	.5	1									float
+coloradj3:contrast	.5	1									float
+coloradj3:invert	0										bool
+mastercoloradj:saturation	.5	1									float
+mastercoloradj:gamma	.5	1									float
+mastercoloradj:contrast	.5	1									float
+mastercoloradj:hueoffset	.5	1									float
+mastercoloradj:postgamma	.5	1									float
+mastercoloradj:postcontrast	.5	1									float
+mastercoloradj:invert1	0										bool
+mastercoloradj:invert2	0										bool
+mastercoloradj:invert3	0										bool
+mastercoloradj:blacklevel1	0						1				float
+mastercoloradj:blacklevel2	0						1				float
+mastercoloradj:blacklevel3	0						1				float
+mastercoloradj:brightness11	0						1				float
+mastercoloradj:brightness12	0						1				float
+mastercoloradj:brightness13	0						1				float
+mastercoloradj:gamma11	0						1				float
+mastercoloradj:gamma12	0						1				float
+mastercoloradj:gamma13	0						1				float
+mastercoloradj:contrast1	0						1				float
+mastercoloradj:contrast2	0						1				float
+mastercoloradj:contrast3	0						1				float
+mastercoloradj:highr1	1						1				float
+mastercoloradj:highr2	1						1				float
+mastercoloradj:highr3	1						1				float
+mastercoloradj:highg1	1						1				float
+mastercoloradj:highg2	1						1				float
+mastercoloradj:highg3	1						1				float
+mastercoloradj:highb1	1						1				float
+mastercoloradj:highb2	1						1				float
+mastercoloradj:highb3	1						1				float
+gridgen:rate	.5										float
+gridgen:period	.5										float
+gridgen:saturation1	0										float
+gridgen:saturation2	0										float
+gridgen:hue1	0.5										float
+gridgen:hue2	0.5										float
+gridgen:value1	0.5										float
+gridgen:value2	0.5										float
+gridgen:opacity1	0.5										float
+gridgen:opacity2	0.5										float
+noisegen1:rate	.4										float
+noisegen1:period1	.5										float
+noisegen1:period2	.5										float
+noisegen1:saturation1	1										float
+noisegen1:saturation2	1										float
+noisegen1:spread1	1						1				float
+noisegen1:spread2	1						1				float
+noisegen1:gain1	1										float
+noisegen1:gain2	1										float
+noisegen1:opacity1	1										float
+noisegen1:opacity2	1										float
+noisegen1:exp1	1						1				float
+noisegen1:exp2	1						1				float
+coloradj1:bypass	0					1					bool
+coloradj2:bypass	0					1					bool
+coloradj3:bypass	0					1					bool
+feedback1:bypass	0					1					bool
+echo1:bypass	0					1					bool
+linedisp:bypass	0					1					bool
+timedist:bypass	0					1					bool
+warp1:bypass	0					1					bool
+warpecho1:bypass	0					1					bool
+feedback2:bypass	0					1					bool
+edge1:bypass	0					1					bool
+warp2:bypass	0					1					bool
+echo2:bypass	0					1					bool
+feedback4:bypass	0					1					bool
+flip1:bypass	0					1					bool
+edge:bypass	0					1					bool
+feedback5:bypass	0					1					bool
+mastercoloradj:bypass	0					1					bool
+template:bypass	0					1					bool
+rampgen1:angle	.5	1				0					float
+rampgen1:phase	.5	1				0					float
+rampgen1:period	.5					0					float
+rampgen1:mirror	1					0					bool
+flip1:xfade	.5					0					float
+flip1:blendop	0										menu
+flip1:swap	0										bool
+srcsel1:src											menu
+srcsel1:feedback	0										bool
+srcsel2:src											menu
+srcsel2:feedback	0										bool
+srcsel3:src											menu
+srcsel3:feedback	0										bool
+srcselmaster:src											menu
+srcselmaster:feedback	0										bool
+mainoutsel:src											menu
+mainoutsel:feedback	0										bool

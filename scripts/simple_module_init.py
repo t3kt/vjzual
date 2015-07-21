@@ -1,8 +1,8 @@
 mod.vjzual.DEBUGLOG('executing init for: ' + op('..').path)
-page = parent().appendCustomPage('Vjzmodule')
-page.appendStr('Modname', label='Module name')
+# page = parent().appendCustomPage('Vjzmodule')
+# page.appendStr('Modname', label='Module name')
 for i in ops('*/init'):
 	try:
 		i.run()
-	except Error as e:
+	except Exception as e:
 		print('INIT error for ' + i, e)
