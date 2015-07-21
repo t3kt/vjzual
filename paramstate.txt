@@ -145,3 +145,6 @@ mastercoloradj:highg3	1
 mastercoloradj:highb1	0.872
 mastercoloradj:highb2	1
 mastercoloradj:highb3	1
+warp2:zoom	0.5477
+warp2:src	noisegen1:wet
+warp2:feedback	0

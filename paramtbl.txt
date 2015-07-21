@@ -63,6 +63,9 @@ timedist:amount	0							float
 timedist:edge_amount	0						1	float
 warp2:level	0							float
 warp2:amount	0							float
+warp2:zoom	0.5	1						float
+warp2:src	0							menu
+warp2:feedback	0							bool
 coloradj1:saturation	.5	1						float
 coloradj1:gamma	.5	1						float
 coloradj1:contrast	.5	1						float
