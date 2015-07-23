@@ -1,276 +1,278 @@
 [
   {
+    "type": "float", 
     "name": "global:rate", 
-    "type": "float", 
     "default": ".5"
   }, 
   {
+    "type": "float", 
     "name": "src1:rate", 
-    "type": "float", 
     "default": ".5"
   }, 
   {
+    "type": "float", 
     "name": "src1:index", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "src2:rate", 
-    "type": "float", 
     "default": ".5"
   }, 
   {
+    "type": "float", 
     "name": "src2:index", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "src3:rate", 
-    "type": "float", 
     "default": ".5"
   }, 
   {
+    "type": "float", 
     "name": "src3:index", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "src4:rate", 
-    "type": "float", 
     "default": ".5"
   }, 
   {
+    "type": "float", 
     "name": "src4:index", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "src5:rate", 
-    "type": "float", 
     "default": ".5"
   }, 
   {
+    "type": "float", 
     "name": "src5:index", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "src6:rate", 
-    "type": "float", 
     "default": ".5"
   }, 
   {
+    "type": "float", 
     "name": "src6:index", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "src7:rate", 
-    "type": "float", 
     "default": ".5"
   }, 
   {
+    "type": "float", 
     "name": "src7:index", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "src8:rate", 
-    "type": "float", 
     "default": ".5"
   }, 
   {
+    "type": "float", 
     "name": "src8:index", 
-    "type": "float", 
     "default": "0"
   }, 
   {
-    "name": "src9:rate", 
     "type": "float", 
+    "name": "src9:rate", 
     "default": ".5"
   }, 
   {
-    "name": "src9:index", 
     "type": "float", 
+    "name": "src9:index", 
     "default": "0"
   }, 
   {
-    "midictl": "s3", 
     "type": "float", 
     "name": "feedback1:level", 
     "mididev": "codev2", 
-    "default": ".4"
+    "default": ".4", 
+    "midictl": "s3"
   }, 
   {
-    "midictl": "s4", 
     "type": "float", 
     "name": "feedback1:warp_amount", 
     "mididev": "codev2", 
-    "default": ".2"
+    "default": ".2", 
+    "midictl": "s4"
   }, 
   {
-    "midictl": "s1", 
     "type": "float", 
     "name": "feedback1:delay_length", 
     "mididev": "codev2", 
-    "default": ".1"
+    "default": ".1", 
+    "midictl": "s1"
   }, 
   {
-    "midictl": "s2", 
     "type": "float", 
     "name": "feedback1:delay_mix", 
     "mididev": "codev2", 
-    "default": ".4"
+    "default": ".4", 
+    "midictl": "s2"
   }, 
   {
+    "type": "float", 
     "name": "echo1:length", 
-    "type": "float", 
-    "default": ".2"
+    "mididev": "codev2", 
+    "default": ".2", 
+    "midictl": "s22"
   }, 
   {
-    "name": "echo1:mix", 
     "type": "float", 
+    "name": "echo1:mix", 
     "default": ".4"
   }, 
   {
-    "midictl": "s23", 
     "type": "float", 
     "name": "echo2:length", 
     "mididev": "codev2", 
-    "default": ".3"
+    "default": ".3", 
+    "midictl": "s23"
   }, 
   {
-    "midictl": "s24", 
     "type": "float", 
     "name": "echo2:mix", 
     "mididev": "codev2", 
-    "default": ".4"
+    "default": ".4", 
+    "midictl": "s24"
   }, 
   {
-    "midictl": "s30", 
     "type": "float", 
     "name": "blend1:mix", 
     "mididev": "codev2", 
-    "default": ".5"
+    "default": ".5", 
+    "midictl": "s30"
   }, 
   {
-    "midictl": "s31", 
     "type": "float", 
     "name": "blend2:mix", 
     "mididev": "codev2", 
-    "default": ".5"
+    "default": ".5", 
+    "midictl": "s31"
   }, 
   {
-    "midictl": "s32", 
     "type": "float", 
     "name": "blend3:mix", 
     "mididev": "codev2", 
-    "default": ".5"
+    "default": ".5", 
+    "midictl": "s32"
   }, 
   {
+    "type": "float", 
     "name": "warpecho1:warp_amount", 
-    "type": "float", 
     "default": ".4"
   }, 
   {
+    "type": "float", 
     "name": "warpecho1:warp_mix", 
-    "type": "float", 
     "default": ".4"
   }, 
   {
+    "type": "float", 
     "name": "warpecho1:delay_length", 
-    "type": "float", 
     "default": ".4"
   }, 
   {
+    "type": "float", 
     "name": "warpecho1:delay_mix", 
-    "type": "float", 
     "default": ".4"
   }, 
   {
+    "type": "float", 
     "name": "warpecho1:xfade", 
-    "hidden": "0", 
-    "type": "float", 
-    "default": ".5"
+    "default": ".5", 
+    "hidden": "0"
   }, 
   {
-    "name": "warpecho1:blendop", 
     "type": "menu", 
+    "name": "warpecho1:blendop", 
     "default": "0"
   }, 
   {
-    "name": "warpecho1:swap", 
     "type": "bool", 
+    "name": "warpecho1:swap", 
     "default": "0"
   }, 
   {
-    "name": "warp1:amount", 
     "type": "float", 
+    "name": "warp1:amount", 
     "default": ".2"
   }, 
   {
-    "name": "warp1:level", 
     "type": "float", 
+    "name": "warp1:level", 
     "default": ".5"
   }, 
   {
-    "name": "mastercoloradj:mode", 
     "type": "menu", 
+    "name": "mastercoloradj:mode", 
     "default": "0"
   }, 
   {
-    "name": "edge:level", 
     "type": "float", 
+    "name": "edge:level", 
     "default": "0"
   }, 
   {
-    "midictl": "s4", 
     "type": "float", 
     "name": "edge:amount", 
     "mididev": "twister", 
-    "default": "0"
+    "default": "0", 
+    "midictl": "s4"
   }, 
   {
+    "type": "float", 
     "name": "edge1:level", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "edge1:amount", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "feedback2:level", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "feedback2:warp_amount", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "feedback2:edge_amount", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "feedback2:scale_variation", 
     "advanced": "1", 
-    "type": "float", 
     "default": "0"
   }, 
   {
-    "midictl": "s16", 
     "type": "float", 
     "name": "feedback4:level", 
     "mididev": "codev2", 
-    "default": "0"
+    "default": "0", 
+    "midictl": "s16"
   }, 
   {
-    "name": "feedback4:warp_amount", 
     "type": "float", 
+    "name": "feedback4:warp_amount", 
     "default": "0"
   }, 
   {
@@ -280,36 +282,36 @@
     "default": "0.5"
   }, 
   {
-    "midictl": "s15", 
     "type": "float", 
     "name": "feedback4:time_warping", 
     "mididev": "codev2", 
-    "default": "0"
+    "default": "0", 
+    "midictl": "s15"
   }, 
   {
+    "type": "float", 
     "name": "feedback5:level", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "feedback5:delay_length", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "feedback5:delay_mix", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "feedback5:mask_mix", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "feedback5:mask_contrast", 
     "advanced": "1", 
-    "type": "float", 
     "default": "0"
   }, 
   {
@@ -327,29 +329,29 @@
     "default": ".5"
   }, 
   {
+    "type": "float", 
     "name": "timedist:level", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "timedist:amount", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "timedist:edge_amount", 
     "advanced": "1", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "warp2:level", 
-    "type": "float", 
     "default": "0"
   }, 
   {
-    "name": "warp2:amount", 
     "type": "float", 
+    "name": "warp2:amount", 
     "default": "0"
   }, 
   {
@@ -377,8 +379,8 @@
     "default": ".5"
   }, 
   {
-    "name": "coloradj1:invert", 
     "type": "bool", 
+    "name": "coloradj1:invert", 
     "default": "0"
   }, 
   {
@@ -400,8 +402,8 @@
     "default": ".5"
   }, 
   {
-    "name": "coloradj2:invert", 
     "type": "bool", 
+    "name": "coloradj2:invert", 
     "default": "0"
   }, 
   {
@@ -423,8 +425,8 @@
     "default": ".5"
   }, 
   {
-    "name": "coloradj3:invert", 
     "type": "bool", 
+    "name": "coloradj3:invert", 
     "default": "0"
   }, 
   {
@@ -464,464 +466,464 @@
     "default": ".5"
   }, 
   {
+    "type": "bool", 
     "name": "mastercoloradj:invert1", 
-    "type": "bool", 
     "default": "0"
   }, 
   {
+    "type": "bool", 
     "name": "mastercoloradj:invert2", 
-    "type": "bool", 
     "default": "0"
   }, 
   {
+    "type": "bool", 
     "name": "mastercoloradj:invert3", 
-    "type": "bool", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:blacklevel1", 
     "advanced": "1", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:blacklevel2", 
     "advanced": "1", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:blacklevel3", 
     "advanced": "1", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:brightness11", 
     "advanced": "1", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:brightness12", 
     "advanced": "1", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:brightness13", 
     "advanced": "1", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:gamma11", 
     "advanced": "1", 
-    "type": "float", 
     "default": "0.5"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:gamma12", 
     "advanced": "1", 
-    "type": "float", 
     "default": "0.5"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:gamma13", 
     "advanced": "1", 
-    "type": "float", 
     "default": "0.5"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:contrast1", 
     "advanced": "1", 
-    "type": "float",
     "default": "0.5"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:contrast2", 
     "advanced": "1", 
-    "type": "float", 
     "default": "0.5"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:contrast3", 
     "advanced": "1", 
-    "type": "float", 
     "default": "0.5"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:highr1", 
     "advanced": "1", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:highr2", 
     "advanced": "1", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:highr3", 
     "advanced": "1", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:highg1", 
     "advanced": "1", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:highg2", 
     "advanced": "1", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:highg3", 
     "advanced": "1", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:highb1", 
     "advanced": "1", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:highb2", 
     "advanced": "1", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "mastercoloradj:highb3", 
     "advanced": "1", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "gridgen:rate", 
-    "type": "float", 
     "default": ".5"
   }, 
   {
+    "type": "float", 
     "name": "gridgen:period", 
-    "type": "float", 
     "default": ".5"
   }, 
   {
+    "type": "float", 
     "name": "gridgen:saturation1", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "gridgen:saturation2", 
-    "type": "float", 
     "default": "0"
   }, 
   {
+    "type": "float", 
     "name": "gridgen:hue1", 
-    "type": "float", 
     "default": "0.5"
   }, 
   {
+    "type": "float", 
     "name": "gridgen:hue2", 
-    "type": "float", 
     "default": "0.5"
   }, 
   {
+    "type": "float", 
     "name": "gridgen:value1", 
-    "type": "float", 
     "default": "0.5"
   }, 
   {
+    "type": "float", 
     "name": "gridgen:value2", 
-    "type": "float", 
     "default": "0.5"
   }, 
   {
+    "type": "float", 
     "name": "gridgen:opacity1", 
-    "type": "float", 
     "default": "0.5"
   }, 
   {
+    "type": "float", 
     "name": "gridgen:opacity2", 
-    "type": "float", 
     "default": "0.5"
   }, 
   {
-    "name": "noisegen1:rate", 
     "type": "float", 
+    "name": "noisegen1:rate", 
     "default": ".4"
   }, 
   {
+    "type": "float", 
     "name": "noisegen1:period1", 
-    "type": "float", 
     "default": ".5"
   }, 
   {
+    "type": "float", 
     "name": "noisegen1:period2", 
-    "type": "float", 
     "default": ".5"
   }, 
   {
+    "type": "float", 
     "name": "noisegen1:saturation1", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "noisegen1:saturation2", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "noisegen1:spread1", 
     "advanced": "1", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "noisegen1:spread2", 
     "advanced": "1", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "noisegen1:gain1", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "noisegen1:gain2", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "noisegen1:opacity1", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "noisegen1:opacity2", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "noisegen1:exp1", 
     "advanced": "1", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "float", 
     "name": "noisegen1:exp2", 
     "advanced": "1", 
-    "type": "float", 
     "default": "1"
   }, 
   {
+    "type": "bool", 
     "name": "coloradj1:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "coloradj2:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "coloradj3:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "feedback1:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "echo1:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "linedisp:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "timedist:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "warp1:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "warpecho1:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "feedback2:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "edge1:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "warp2:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "echo2:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "feedback4:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "flip1:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "edge:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "feedback5:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
+    "type": "bool", 
     "name": "mastercoloradj:bypass", 
-    "hidden": "1", 
-    "type": "bool", 
-    "default": "0"
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
-    "name": "template:bypass", 
-    "hidden": "1", 
     "type": "bool", 
-    "default": "0"
+    "name": "template:bypass", 
+    "default": "0", 
+    "hidden": "1"
   }, 
   {
     "showmidbar": "1", 
     "name": "rampgen1:angle", 
-    "hidden": "0", 
     "type": "float", 
-    "default": ".5"
+    "default": ".5", 
+    "hidden": "0"
   }, 
   {
     "showmidbar": "1", 
     "name": "rampgen1:phase", 
-    "hidden": "0", 
     "type": "float", 
-    "default": ".5"
+    "default": ".5", 
+    "hidden": "0"
   }, 
   {
+    "type": "float", 
     "name": "rampgen1:period", 
-    "hidden": "0", 
-    "type": "float", 
-    "default": ".5"
+    "default": ".5", 
+    "hidden": "0"
   }, 
   {
+    "type": "bool", 
     "name": "rampgen1:mirror", 
-    "hidden": "0", 
-    "type": "bool", 
-    "default": "1"
+    "default": "1", 
+    "hidden": "0"
   }, 
   {
-    "name": "flip1:xfade", 
-    "hidden": "0", 
     "type": "float", 
-    "default": ".5"
+    "name": "flip1:xfade", 
+    "default": ".5", 
+    "hidden": "0"
   }, 
   {
-    "name": "flip1:blendop", 
     "type": "menu", 
+    "name": "flip1:blendop", 
     "default": "0"
   }, 
   {
+    "type": "bool", 
     "name": "flip1:swap", 
-    "type": "bool", 
     "default": "0"
   }, 
   {
-    "name": "srcsel1:src", 
-    "type": "menu"
+    "type": "menu", 
+    "name": "srcsel1:src"
   }, 
   {
+    "type": "bool", 
     "name": "srcsel1:feedback", 
-    "type": "bool", 
     "default": "0"
   }, 
   {
-    "name": "srcsel2:src", 
-    "type": "menu"
+    "type": "menu", 
+    "name": "srcsel2:src"
   }, 
   {
+    "type": "bool", 
     "name": "srcsel2:feedback", 
-    "type": "bool", 
     "default": "0"
   }, 
   {
-    "name": "srcsel3:src", 
-    "type": "menu"
+    "type": "menu", 
+    "name": "srcsel3:src"
   }, 
   {
+    "type": "bool", 
     "name": "srcsel3:feedback", 
-    "type": "bool", 
     "default": "0"
   }, 
   {
-    "name": "srcselmaster:src", 
-    "type": "menu"
+    "type": "menu", 
+    "name": "srcselmaster:src"
   }, 
   {
+    "type": "bool", 
     "name": "srcselmaster:feedback", 
-    "type": "bool", 
     "default": "0"
   }, 
   {
-    "name": "mainoutsel:src", 
-    "type": "menu"
+    "type": "menu", 
+    "name": "mainoutsel:src"
   }, 
   {
-    "name": "mainoutsel:feedback", 
     "type": "bool", 
+    "name": "mainoutsel:feedback", 
     "default": "0"
   }
 ]
