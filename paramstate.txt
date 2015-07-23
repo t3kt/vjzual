@@ -21,7 +21,7 @@ linedisp:level	0.0
 timedist:level	1.0
 timedist:amount	0.5034
 timedist:edge_amount	0.0
-warp1:amount	0.8456
+warp1:amount	0.8191
 warp1:level	0.9329
 warpecho1:warp_amount	0.0
 warpecho1:warp_mix	0.557
@@ -102,7 +102,7 @@ feedback5:mask_mix	0.9128
 feedback5:mask_contrast	0.5906
 feedback5:mask_gamma	0.4161
 feedback5:mask_saturation	0.0
-flip1:blendop	negate
+flip1:blendop	outside
 flip1:swap	0
 srcsel1:src	src_1
 srcsel1:feedback	0

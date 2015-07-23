@@ -1,5 +1,7 @@
 __author__ = 'tekt'
 
+import json
+
 def argToOp(arg):
 	if not arg:
 		return None
@@ -83,9 +85,20 @@ def rowsToDictList(tbl):
 	allObjs = []
 	cols = [c.val for c in tbl.row(0)]
 	for i in range(1, tbl.numRows):
-		obj = {c: tbl[i, c].val for c in cols}
+		obj = {c: tbl[i, c].val for c in cols if tbl[i, c] != ""}
 		allObjs.append(obj)
 	return allObjs
+
+def fillTableFromDicts(tbl, objs, cols=None, keyCol='name'):
+	tbl = argToOp(tbl)
+	tbl.clear()
+	tbl.appendRow(cols)
+	if not len(objs):
+		return
+	for obj in objs:
+		if not len(obj):
+			continue
+		updateTableRow(tbl, obj[keyCol], withoutDictEmptyStrings(obj), addMissing=True, ignoreMissingCols=False)
 
 def buildModuleDefDicts(moduletbl, paramtbl):
 	moduletbl, paramtbl = argToOp(moduletbl), argToOp(paramtbl)
@@ -424,5 +437,13 @@ class VjzSystem:
 		for m in self.GetModules():
 			print('loading param values in: ', m.ModPath)
 			m.LoadParamValues(tbl)
+
+	def SaveParamTableJson(self):
+		tbl = self._root.op(self.SVar('editableparamtbl'))
+		objs = rowsToDictList(tbl)
+		j = json.dumps(objs, indent=2)
+		jdat = self._root.op(self.SVar('editableparamtbljson'))
+		jdat.text = j
+		jdat.par.write.pulse(1)
 
 VJZ = VjzSystem(op('/_'))
