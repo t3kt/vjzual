@@ -13,6 +13,7 @@ warp2	/_/layer2/warp2	filter	warp 2	145	1
 echo2	/_/layer3/echo_2	filter	echo 2	75	1	
 feedback4	/_/layer3/feedback_4	filter	feedback 4	295	1	
 flip1	/_/layer3/flip	filter	flip	150	1	
+lookup1	/_/layer3/lookup_1	filter	lookup 1	230	1	
 edge	/_/master/edge	filter	edge	75	1	
 feedback5	/_/master/feedback_5	filter	feedback 5	300	1	
 mastercoloradj	/_/master/color_adjustment	filter	color adjustment	340	1	

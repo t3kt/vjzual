@@ -144,6 +144,7 @@ warp2:bypass	0					1					bool
 echo2:bypass	0					1					bool
 feedback4:bypass	0					1					bool
 flip1:bypass	0					1					bool
+lookup1:bypass	0					1					bool
 edge:bypass	0					1					bool
 feedback5:bypass	0					1					bool
 mastercoloradj:bypass	0					1					bool
@@ -155,6 +156,10 @@ rampgen1:mirror	1					0					bool
 flip1:xfade	.5					0					float
 flip1:blendop	0										menu
 flip1:swap	0										bool
+lookup1:amount	0										float
+lookup1:level	0										float
+lookup1:src											menu
+lookup1:feedback	0										bool
 srcsel1:src											menu
 srcsel1:feedback	0										bool
 srcsel2:src											menu
