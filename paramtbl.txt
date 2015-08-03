@@ -160,6 +160,7 @@ lookup1:amount	0										float
 lookup1:level	0										float
 lookup1:src											menu
 lookup1:feedback	0										bool
+lookup1:xfade	0										float
 srcsel1:src											menu
 srcsel1:feedback	0										bool
 srcsel2:src											menu
