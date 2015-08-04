@@ -1,3 +1,5 @@
+from abc import abstractproperty, ABCMeta, abstractmethod
+
 __author__ = 'tekt'
 
 import json
@@ -178,7 +180,72 @@ def toggleTag(comp, name, enable):
 	elif name in comp.tags:
 		comp.tags.remove(name)
 
-class VjzParam:
+def notImplemented(*unused_args):
+	raise NotImplementedError()
+
+def make_getterNotImplemented():
+	return lambda self: notImplemented()
+
+def make_setterNotImplemented():
+	return lambda self, value: notImplemented()
+
+def _override(func):
+	return func
+
+class VjzParamBase:
+	__metaclass__ = ABCMeta
+
+	@abstractmethod
+	def PVar(self, name):
+		notImplemented(self, name)
+
+	@abstractmethod
+	def GetParamDefProperty(self, name):
+		notImplemented(name)
+
+	ParamValue_getter = make_getterNotImplemented()
+	ParamValue_setter = make_setterNotImplemented()
+	ParamValue = abstractproperty(ParamValue_getter, ParamValue_setter)
+
+	@property
+	def ParamName(self):
+		return self.PVar('pname')
+
+	ParamMidiName_getter = make_getterNotImplemented()
+	ParamMidiName_setter = make_setterNotImplemented()
+	ParamMidiName = abstractproperty(ParamMidiName_getter, ParamMidiName_setter)
+
+	@abstractmethod
+	def UpdateParamTableEntry(self, vals):
+		notImplemented(self, vals)
+
+	def SaveParamMidiMapping(self):
+		notImplemented(self)
+
+	def LoadParamMidiMapping(self):
+		dev, ctl = self.GetParamDefProperty('mididev'), self.GetParamDefProperty('midictl')
+		if not dev or not ctl:
+			self.ParamMidiName = None
+		else:
+			self.ParamMidiName = dev[0] + ':' + ctl
+
+	def ResetParamToDefault(self):
+		val = self.GetParamDefProperty('default')
+		if val is None:
+			raise Exception('Parameter {0} does not have a default value and cannot be reset'.format(self.ParamName))
+		self.ParamValue = val.val
+
+	def SaveParamValue(self, tbl):
+		val = round(self.ParamValue, 4)
+		updateTableRow(tbl, self.ParamName, {'value': val}, addMissing=True)
+
+	def LoadParamValue(self, tbl):
+		val = tbl[self.ParamName, 1]
+		if val is not None:
+			self.ParamValue = float(val)
+
+
+class VjzParam(VjzParamBase):
 	def __init__(self, comp):
 		self._comp = comp
 		page = comp.appendCustomPage('Vjzparam')
@@ -206,6 +273,7 @@ class VjzParam:
 		print('unable to find VjzParam extension for comp: ' + comp.path)
 		return None
 
+	@_override
 	def PVar(self, name):
 		return self._comp.var(name)
 
@@ -214,30 +282,35 @@ class VjzParam:
 		d = self._comp.op(self.PVar('pdef'))
 		return d if d.numRows == 2 else None
 
-	@property
-	def ParamValue(self):
+	@_override
+	def GetParamDefProperty(self, name):
+		pdef = self.ParamDef
+		cell = pdef[name, 1] if pdef else None
+		if cell:
+			return cell.val
+
+	@_override
+	def ParamValue_getter(self):
 		return self._comp.op('value')[0][0]
 
-	@ParamValue.setter
-	def ParamValue(self, val):
+	@_override
+	def ParamValue_setter(self, val):
 		self._comp.op('slider').panel.u = val
 
-	@property
-	def ParamName(self):
-		return self.PVar('pname')
+	ParamValue = property(ParamValue_getter, ParamValue_setter)
 
 	@property
 	def ParamMidiMapping(self):
 		mapping = self._comp.op('mapping')
 		return mapping if mapping.numRows == 2 else None
 
-	@property
-	def ParamMidiName(self):
+	@_override
+	def ParamMidiName_getter(self):
 		m = self.ParamMidiMapping
 		return m[1, 'name'].val if m else None
 
-	@ParamMidiName.setter
-	def ParamMidiName(self, name):
+	@_override
+	def ParamMidiName_setter(self, name):
 		if not name or name == '-':
 			abbr = '-'
 			i = 0
@@ -252,9 +325,13 @@ class VjzParam:
 				i = 0
 		self._comp.op('midictllist/set').run(i, abbr)
 
+	ParamMidiName = property(ParamMidiName_getter, ParamMidiName_setter)
+
+	@_override
 	def UpdateParamTableEntry(self, vals):
 		updateTableRow(self.PVar('editableparamtbl'), self.ParamName, vals)
 
+	@_override
 	def SaveParamMidiMapping(self):
 		mapping = self.ParamMidiMapping
 		if not mapping:
@@ -262,31 +339,6 @@ class VjzParam:
 		else:
 			dev, ctl = mapping[1, 'mididev'].val, mapping[1, 'midictl'].val
 		self.UpdateParamTableEntry({'mididev': dev, 'midictl': ctl})
-
-	def LoadParamMidiMapping(self):
-		pdef = self.ParamDef
-		if not pdef:
-			return
-		dev, ctl = pdef[1, 'mididev'].val, pdef[1, 'midictl'].val
-		if not dev or not ctl:
-			self.ParamMidiName = None
-		else:
-			self.ParamMidiName = dev[0] + ':' + ctl
-
-	def SaveParamValue(self, tbl):
-		val = round(self.ParamValue, 4)
-		updateTableRow(tbl, self.ParamName, {'value': val}, addMissing=True)
-
-	def LoadParamValue(self, tbl):
-		val = tbl[self.ParamName, 1]
-		if val is not None:
-			self.ParamValue = float(val)
-
-	def ResetParamToDefault(self):
-		val = self.ParamDef[1, 'default']
-		if val is None:
-			raise Exception('Parameter {0} does not have a default value and cannot be reset'.format(self.ParamName))
-		self.ParamValue = val.val
 
 
 class VjzModule:
