@@ -5,6 +5,10 @@ p.par.h = var('paramuih')
 p.par.extension1 = 'mod.vjzual.VjzParam(me)'
 p.par.promoteextension1 = 1
 #p.par.reinitextensions.pulse(1)
+
+# this really shouldn't be necessary...
+p.op('should_display').par.expr = '!tabc(var(".", "pdef"), 1, "hidden") && !if(varexists("modstate"), chop(var(".", "modstate") + "/collapsed"), 0) && (strcmp(tabc(var(".", "pdef"), 1, "advanced"), "1")!=0 || if(varexists("modstate"), chop(var(".", "modstate") + "/showadvanced"), 1))'
+
 #page = p.appendCustomPage('Vjzparam')
 #page.appendStr('Paramname', label='Parameter Name')
 op('midictllist/define')['displaylabel', 1] = '0'

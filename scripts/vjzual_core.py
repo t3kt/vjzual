@@ -171,6 +171,13 @@ def _safeTestForAttr(comp, name):
 	except:
 		return False
 
+def toggleTag(comp, name, enable):
+	comp = argToOp(comp)
+	if enable:
+		comp.tags.add(name)
+	elif name in comp.tags:
+		comp.tags.remove(name)
+
 class VjzParam:
 	def __init__(self, comp):
 		self._comp = comp
@@ -292,6 +299,7 @@ class VjzModule:
 			self._callbacks = mod(callbacks)
 		else:
 			self._callbacks = None
+		toggleTag(self._comp, 'vjzmodule', self.MVar('modfake') != '1')
 
 	@staticmethod
 	def get(comp):
@@ -326,6 +334,10 @@ class VjzModule:
 	@property
 	def ModPath(self):
 		return self._comp.path
+
+	@property
+	def ModState(self):
+		return self._comp.op(self.MVar('modstate'))
 
 	@property
 	def ModParamTable(self):
@@ -409,7 +421,10 @@ class VjzSystem:
 		return self._root.op(self.SVar('paramtbl'))
 
 	def GetModules(self, fakes=False):
+		# if not fakes:
+		# 	return self._root.findChildren(tags=['vjzmodule'])
 		modtbl = self.ModuleTable
+		mods = []
 		for mname in modtbl.col('name')[1:]:
 			if not fakes and modtbl[mname, 'fake'] == '1':
 				continue
@@ -417,7 +432,8 @@ class VjzSystem:
 			if mop:
 				m = VjzModule.get(mop)
 				if m:
-					yield m
+					mods.append(m)
+		return mods
 
 	def GetModule(self, name):
 		m = self.ModuleTable[name, 'path']
