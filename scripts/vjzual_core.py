@@ -195,29 +195,28 @@ def _override(func):
 class VjzParamBase:
 	__metaclass__ = ABCMeta
 
-	@abstractmethod
-	def PVar(self, name):
-		notImplemented(self, name)
-
-	@abstractmethod
 	def GetParamDefProperty(self, name):
-		notImplemented(name)
+		ptbl = VJZ.ParamTable
+		if not ptbl:
+			return None
+		cell = ptbl[self.ParamName, name]
+		if cell is not None:
+			return cell.val
 
 	ParamValue_getter = make_getterNotImplemented()
 	ParamValue_setter = make_setterNotImplemented()
 	ParamValue = abstractproperty(ParamValue_getter, ParamValue_setter)
 
-	@property
+	@abstractproperty
 	def ParamName(self):
-		return self.PVar('pname')
+		return notImplemented(self)
 
 	ParamMidiName_getter = make_getterNotImplemented()
 	ParamMidiName_setter = make_setterNotImplemented()
 	ParamMidiName = abstractproperty(ParamMidiName_getter, ParamMidiName_setter)
 
-	@abstractmethod
 	def UpdateParamTableEntry(self, vals):
-		notImplemented(self, vals)
+		updateTableRow(VJZ.GetSysOp('editableparamtbl'), self.ParamName, vals)
 
 	def SaveParamMidiMapping(self):
 		notImplemented(self)
@@ -233,7 +232,7 @@ class VjzParamBase:
 		val = self.GetParamDefProperty('default')
 		if val is None:
 			raise Exception('Parameter {0} does not have a default value and cannot be reset'.format(self.ParamName))
-		self.ParamValue = val.val
+		self.ParamValue = val
 
 	def SaveParamValue(self, tbl):
 		val = round(self.ParamValue, 4)
@@ -245,7 +244,40 @@ class VjzParamBase:
 			self.ParamValue = float(val)
 
 
+class OpParamWrapper(VjzParamBase):
+	def __init__(self, name, op, parName):
+		self._name = name
+		self._op = op
+		self._parName = parName
+
+	@property
+	@_override
+	def ParamName(self):
+		return self._name
+
+	@_override
+	def ParamValue_getter(self):
+		return getattr(self._op.par, self._parName).eval()
+
+	@_override
+	def ParamValue_setter(self, val):
+		setattr(self._op.par, self._parName, val)
+
+	ParamValue = property(ParamValue_getter, ParamValue_setter)
+
+	@_override
+	def ParamMidiName_getter(self):
+		return None
+
+	@_override
+	def ParamMidiName_setter(self, val):
+		notImplemented(self, val)
+
+	ParamMidiName = property(ParamMidiName_getter, ParamMidiName_setter)
+
+
 class VjzParam(VjzParamBase):
+
 	def __init__(self, comp):
 		self._comp = comp
 		page = comp.appendCustomPage('Vjzparam')
@@ -273,21 +305,19 @@ class VjzParam(VjzParamBase):
 		print('unable to find VjzParam extension for comp: ' + comp.path)
 		return None
 
-	@_override
 	def PVar(self, name):
 		return self._comp.var(name)
+
+	@property
+	@_override
+	def ParamName(self):
+		#return self._comp.par.Paramname
+		return self.PVar('pname')
 
 	@property
 	def ParamDef(self):
 		d = self._comp.op(self.PVar('pdef'))
 		return d if d.numRows == 2 else None
-
-	@_override
-	def GetParamDefProperty(self, name):
-		pdef = self.ParamDef
-		cell = pdef[name, 1] if pdef else None
-		if cell:
-			return cell.val
 
 	@_override
 	def ParamValue_getter(self):
@@ -326,10 +356,6 @@ class VjzParam(VjzParamBase):
 		self._comp.op('midictllist/set').run(i, abbr)
 
 	ParamMidiName = property(ParamMidiName_getter, ParamMidiName_setter)
-
-	@_override
-	def UpdateParamTableEntry(self, vals):
-		updateTableRow(self.PVar('editableparamtbl'), self.ParamName, vals)
 
 	@_override
 	def SaveParamMidiMapping(self):
@@ -379,6 +405,9 @@ class VjzModule:
 	def MVar(self, name):
 		return self._comp.var(name)
 
+	def GetModOp(self, name):
+		return self._comp.op(self.MVar(name))
+
 	@property
 	def ModName(self):
 		return self.MVar('modname')
@@ -389,11 +418,11 @@ class VjzModule:
 
 	@property
 	def ModState(self):
-		return self._comp.op(self.MVar('modstate'))
+		return self.GetModOp('modstate')
 
 	@property
 	def ModParamTable(self):
-		return self._comp.op(self.MVar('modparamtbl'))
+		return self.GetModOp('modparamtbl')
 
 	@property
 	def ModParamNames(self):
@@ -413,8 +442,12 @@ class VjzModule:
 			yield pop
 
 	def ModParam(self, name):
+		pop = self._InvokeCallback('GetModParam', name)
+		if pop:
+			return pop
 		pop = self._comp.op(name + '_param')
-		return VjzParam.get(pop) if pop else None
+		if pop:
+			return VjzParam.get(pop)
 
 	def SaveParamValues(self, tbl):
 		tbl = argToOp(tbl)
@@ -466,11 +499,18 @@ class VjzSystem:
 
 	@property
 	def ModuleTable(self):
-		return self._root.op(self.SVar('moduletbl'))
+		return self.GetSysOp('moduletbl')
 
 	@property
 	def ParamTable(self):
-		return self._root.op(self.SVar('paramtbl'))
+		return self.GetSysOp('paramtbl')
+
+	@property
+	def ParamStateTable(self):
+		return self.GetSysOp('paramstatetbl')
+
+	def GetSysOp(self, name):
+		return self._root.op(self.SVar(name))
 
 	def GetModules(self, fakes=False):
 		# if not fakes:
@@ -495,22 +535,22 @@ class VjzSystem:
 		return VjzModule.get(m)
 
 	def SaveParamValues(self):
-		tbl = self._root.op(self.SVar('paramstatetbl'))
+		tbl = self.ParamStateTable
 		for m in self.GetModules():
 			m.SaveParamValues(tbl)
 		tbl.save(tbl.par.file.val)
 
 	def LoadParamValues(self):
-		tbl = self._root.op(self.SVar('paramstatetbl'))
+		tbl = self.ParamStateTable
 		for m in self.GetModules():
 			print('loading param values in: ', m.ModPath)
 			m.LoadParamValues(tbl)
 
 	def SaveParamTableJson(self):
-		tbl = self._root.op(self.SVar('editableparamtbl'))
+		tbl = self.GetSysOp('editableparamtbl')
 		objs = rowsToDictList(tbl)
 		j = json.dumps(objs, indent=2)
-		jdat = self._root.op(self.SVar('editableparamtbljson'))
+		jdat = self.GetSysOp('editableparamtbljson')
 		jdat.text = j
 		jdat.par.write.pulse(1)
 
