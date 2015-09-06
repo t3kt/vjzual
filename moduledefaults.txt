@@ -5,6 +5,8 @@ dry	filter	{m}/dry
 wet		{m}/wet
 drypreview	filter	{m}/dry
 wetpreview		{m}/wet
+dryaudio	filter	{m}/dry_audio
+wetaudio		{m}/wet_audio
 paramsout		{m}/params_out
 params		{m}/params
 paramtbl		{m}/local/paramtbl
