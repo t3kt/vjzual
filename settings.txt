@@ -62,3 +62,4 @@ leapzmax	-0.16
 uistate	/_/local/uistate
 editableuistate	/_/local/set_uistate
 paramuih	22
+silence	/_/components/silence
