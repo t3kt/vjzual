@@ -43,7 +43,7 @@ uirootw	1000
 uirooth	850
 audioin	/_/audio/audioin
 audioinraw	/_/audio/audioinraw
-audioout	/_/audio/audioout
+audioout	/_/audioout
 audiodata	/_/audio/data
 audiospectrums	/_/audio/spectrums
 midiinvals	/_/inputs/midiinvals
