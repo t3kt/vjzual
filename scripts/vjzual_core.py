@@ -140,9 +140,9 @@ def withoutDictEmptyStrings(d):
 	return {k: d[k] for k in d if d[k] != ""}
 
 def DEBUGLOG(s):
-	log = op('/_/LOG')
-	log.text += s + '\n'
-	log.save('DEBUGLOG.txt')
+	# log = op('/_/LOG')
+	# log.text += s + '\n'
+	# log.save('DEBUGLOG.txt')
 	pass
 
 def getOrAddParamPage(comp, name):
@@ -366,17 +366,20 @@ class VjzParam(VjzParamBase):
 			dev, ctl = mapping[1, 'mididev'].val, mapping[1, 'midictl'].val
 		self.UpdateParamTableEntry({'mididev': dev, 'midictl': ctl})
 
-
 class VjzModule:
 	def __init__(self, comp):
 		self._comp = comp
 		page = comp.appendCustomPage('Vjzmodule')
 		page.appendStr('Modname', label='Module name')
+		#page.appendToggle('Modbypass', label='Bypass')
 		callbacks = self._comp.op('callbacks')
 		if callbacks and callbacks.isDAT:
 			self._callbacks = mod(callbacks)
 		else:
 			self._callbacks = None
+		self._specialParams = [
+			#OpParamWrapper(self.ModName + ':bypass', comp, 'Modbypass')
+		]
 		toggleTag(self._comp, 'vjzmodule', self.MVar('modfake') != '1')
 
 	@staticmethod
@@ -432,14 +435,25 @@ class VjzModule:
 	def ModParamLocalNames(self):
 		return [c.val for c in self.ModParamTable.col('localname')[1:]]
 
-	@property
-	def ModParamObjects(self):
+	def GetModParamCompObjects(self):
 		pnames = self.ModParamLocalNames
+		params = []
 		for p in pnames:
 			pop = self.ModParam(p)
-			if not pop:
-				print('parameter component not found for param "' + p + '" in module "' + self.ModName + '"')
-			yield pop
+			if pop:
+				params.append(pop)
+		return params
+
+	def GetSpecialParamObjects(self):
+		params = self._InvokeCallback('GetSpecialParamObjects')
+		specials = params if params else []
+		return specials + self._specialParams
+
+	@property
+	def ModParamObjects(self):
+		compParams = self.GetModParamCompObjects()
+		specialParams = self.GetSpecialParamObjects()
+		return compParams + specialParams
 
 	def ModParam(self, name):
 		pop = self._InvokeCallback('GetModParam', name)
